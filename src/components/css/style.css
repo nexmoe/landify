@@ -1,0 +1,57 @@
+section {
+  padding: 5rem 0;
+  overflow: unset;
+}
+
+section header {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+section header.center {
+  text-align: center;
+}
+
+section.gray {
+  background-color: var(--vp-c-bg-soft);
+}
+
+section.black {
+  background-color: #000;
+  color: #f5f5f7;
+}
+
+section.background {
+  background: url(https://i.dawnlab.me/f0ed50c6739b0092ebefb9d281ed10ee.png);
+  background-size: cover;
+}
+
+section.background :deep(.card) {
+  border: none !important;
+}
+
+section.background header {
+  color: #fff;
+}
+
+section header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+section header p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--vp-c-text-2);
+}
+
+@media screen and (max-width: 768px) {
+  section header h1 {
+    font-size: 2rem;
+  }
+  section header p {
+    font-size: 1rem;
+  }
+}

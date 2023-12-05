@@ -1,0 +1,21 @@
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -18px;
+}
+.row > .column {
+  position: relative;
+  width: 100%;
+  padding: 18px;
+}
+.row > .column.w50 {
+  width: 50%;
+}
+@media (max-width: 767px) {
+  .row > .column.w50 {
+    width: 100%;
+  }
+}

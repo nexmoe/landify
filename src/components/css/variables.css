@@ -1,0 +1,6 @@
+:root {
+  --xs-shadow: 0 5px 25px rgb(120 120 120 / 40%);
+  --xs-shadow-7: 0 2px 64px 0 rgb(0 0 0 / 15%);
+  --xs-radius: 8px;
+  --xs-radius-3: 20px;
+}
