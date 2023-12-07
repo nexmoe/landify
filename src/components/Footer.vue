@@ -77,7 +77,7 @@ defineProps({
 
 <style scoped>
 .link.border {
-    @apply pr-2 border-none border-r-1 border-solid border-gray-300;
+    @apply pr-2 border-solid border-gray-300;
 }
 .link.border:last-child {
     @apply border-r-0;
@@ -86,7 +86,7 @@ h3 {
     @apply block;
 }
 .col {
-    @apply pl-2 border-l-1 border-solid border-gray-300;
+    @apply pl-2 border-solid border-gray-300;
 }
 .col:first-child {
     @apply pl-0 flex-none w-1/3;
@@ -94,14 +94,14 @@ h3 {
 
 @media screen and (max-width: 768px) {
     .col:first-child {
-        @apply w-full pt-0 mt-0 border-t-0;
+        @apply w-full pt-0 mt-0;
     }
     .col {
-        @apply pt-2 mt-2 border-t-1 border-solid border-gray-300 pl-0 border-l-0;
+        @apply pt-2 mt-2 border-solid border-gray-300 pl-0 border-l-0;
     }
 }
 
 .copyright hr {
-    @apply border-none border-t-1 border-solid border-gray-300 my-2;
+    @apply border-none border-solid border-gray-300 my-2;
 }
 </style>

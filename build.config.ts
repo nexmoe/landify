@@ -1,10 +1,11 @@
+// build.config.ts
 import { defineBuildConfig } from 'unbuild'
-import Unocss from '@unocss/postcss'
+// import unocss from 'unocss/postcss'
+import tailwindcss from 'tailwindcss'
 
 export default defineBuildConfig({
     entries: [
         { builder: 'mkdist', input: './src/' },
-        // @ts-expect-error: See https://github.com/unjs/unbuild/issues/332
         { builder: 'mkdist', input: './src/', format: 'cjs', ext: 'cjs' }
     ],
     clean: true,
@@ -15,7 +16,10 @@ export default defineBuildConfig({
         'mkdist:entry:options': (a, b, options) => {
             options.postcss = {
                 ...options.postcss,
-                plugins: [Unocss()]
+                plugins: [
+                    // unocss()
+                    tailwindcss()
+                ]
             }
         }
     }
