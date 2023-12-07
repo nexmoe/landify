@@ -7,8 +7,8 @@ defineProps({
 })
 </script>
 <template>
-    <div class="xiaoshu-comment">
-        <figure
+    <div class="nex-comment">
+        <div
             v-for="item in feature.items"
             :key="item"
             class="bg-vp-c-bg mb-8 break-inside-avoid rounded-lg p-8 shadow-md"
@@ -24,16 +24,16 @@ defineProps({
                     fill="currentColor"
                 ></path>
             </svg>
-            <blockquote class="mt-4 text-lg leading-snug">
+            <div class="mt-4 text-lg leading-snug">
                 {{ item.comment }}
-            </blockquote>
-            <figcaption class="mt-4 text-base">{{ item.author }}</figcaption>
-        </figure>
+            </div>
+            <div class="mt-4 text-base">{{ item.author }}</div>
+        </div>
     </div>
 </template>
 
 <style scoped>
-.xiaoshu-comment {
+.nex-comment {
     @apply mx-auto w-full md:grid md:grid-cols-3 md:gap-8 md:grid-cols-1;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
     <div class="compare pt-8">
         <div class="compare-item">
-            <div class="picture absolute overflow-hidden shadow-lg rounded-xl">
-                <img class="w-full h-full" :src="props.compare?.after" />
+            <div class="picture absolute overflow-hidden rounded-xl shadow-lg">
+                <img class="h-full w-full" :src="props.compare?.after" />
             </div>
-            <div class="picture absolute overflow-hidden after">
+            <div class="picture after absolute overflow-hidden">
                 <img
-                    class="w-full h-full rounded-xl"
+                    class="h-full w-full rounded-xl"
                     :src="props.compare?.before"
                 />
             </div>
@@ -59,27 +59,23 @@ onMounted(() => {
 
 <style scoped>
 .compare {
+    @apply flex overflow-hidden justify-center;
     height: 250vh;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
 }
 .compare-item {
-    position: relative;
+    @apply: relative w-full h-full;
     max-width: calc(100vw - 100px);
     max-height: calc(100vh - 200px);
-    width: 100%;
-    height: 100%;
 }
 .sticky {
-    overflow: visible;
+    @apply: overflow-visible;
 }
 .sticky .compare-item {
-    position: sticky;
+    @apply: sticky;
     top: 100px;
 }
 .picture {
-    width: 100%;
+    @apply: w-full;
     aspect-ratio: 1500 / 722;
 }
 </style>

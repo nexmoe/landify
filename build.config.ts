@@ -15,7 +15,7 @@ export default defineBuildConfig({
         'mkdist:entry:options': (a, b, options) => {
             options.postcss = {
                 ...options.postcss,
-                plugins: [Unocss]
+                plugins: [Unocss()]
             }
         }
     }
