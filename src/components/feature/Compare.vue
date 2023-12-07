@@ -1,7 +1,7 @@
 <template>
     <div class="compare pt-8">
         <div class="compare-item">
-            <div class="picture absolute overflow-hidden before rounded-xl">
+            <div class="picture absolute overflow-hidden shadow-lg rounded-xl">
                 <img class="w-full h-full" :src="props.compare?.after" />
             </div>
             <div class="picture absolute overflow-hidden after">
@@ -81,8 +81,5 @@ onMounted(() => {
 .picture {
     width: 100%;
     aspect-ratio: 1500 / 722;
-}
-.before {
-    box-shadow: var(--xs-shadow);
 }
 </style>

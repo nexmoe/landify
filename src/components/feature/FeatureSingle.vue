@@ -1,6 +1,10 @@
 <template>
-    <div v-if="feature.picture" class="picture">
-        <img loading="lazy" :src="feature.picture" />
+    <div v-if="feature.picture" class="w-full">
+        <img
+            class="max-w-full shadow-lg rounded-2xl"
+            loading="lazy"
+            :src="feature.picture"
+        />
     </div>
 </template>
 
@@ -9,15 +13,3 @@ defineProps({
     feature: {}
 })
 </script>
-
-<style scoped>
-.picture {
-    width: 100%;
-}
-
-.picture img {
-    max-width: 100%;
-    border-radius: var(--xs-radius-3);
-    box-shadow: var(--xs-shadow);
-}
-</style>

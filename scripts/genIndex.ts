@@ -4,7 +4,8 @@ import path from 'path'
 import { consola } from 'consola'
 
 const componentDirectory = path.join(__dirname, '../src/components')
-const outputFile = path.join(componentDirectory, 'index.ts')
+const srcDirectory = path.join(__dirname, '../src')
+const outputFile = path.join(srcDirectory, 'index.ts')
 
 async function generateIndexFile() {
     try {
@@ -14,7 +15,7 @@ async function generateIndexFile() {
         const indexContent = files
             .map((file) => {
                 const componentName = path.basename(file, '.vue')
-                return `export * as ${componentName} from './${file}'`
+                return `export * as ${componentName} from './components/${file}'`
             })
             .join('\n')
 

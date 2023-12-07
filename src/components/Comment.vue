@@ -8,8 +8,13 @@ defineProps({
 </script>
 <template>
     <div class="xiaoshu-comment">
-        <figure v-for="item in feature.items" :key="item">
+        <figure
+            v-for="item in feature.items"
+            :key="item"
+            class="bg-vp-c-bg mb-8 break-inside-avoid rounded-lg p-8 shadow-md"
+        >
             <svg
+                class="h-8 text-gray-500"
                 viewBox="0 0 24 27"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -19,51 +24,16 @@ defineProps({
                     fill="currentColor"
                 ></path>
             </svg>
-            <blockquote>{{ item.comment }}</blockquote>
-            <figcaption>{{ item.author }}</figcaption>
+            <blockquote class="mt-4 text-lg leading-snug">
+                {{ item.comment }}
+            </blockquote>
+            <figcaption class="mt-4 text-base">{{ item.author }}</figcaption>
         </figure>
     </div>
 </template>
 
 <style scoped>
 .xiaoshu-comment {
-    margin: auto;
-    width: 100%;
-    columns: 3;
-    column-gap: 32px;
-}
-@media (max-width: 767px) {
-    .xiaoshu-comment {
-        columns: 1;
-    }
-}
-
-figure {
-    break-inside: avoid;
-    margin-bottom: 32px;
-    background: var(--vp-c-bg);
-    box-shadow:
-        0 10px 15px -3px rgb(0 0 0 / 0.1),
-        0 4px 6px -4px rgb(0 0 0 / 0.1);
-    padding: 32px;
-    border-radius: 1rem;
-}
-svg {
-    height: 2rem;
-    color: #9da3af;
-}
-blockquote {
-    font-size: 1.1rem;
-    margin-top: 1rem;
-    line-height: 1.3;
-}
-figcaption {
-    font-size: 1rem;
-    margin-top: 1rem;
-}
-.progress {
-    height: 1px;
-    background-color: #000;
-    margin-top: 1rem;
+    @apply mx-auto w-full md:grid md:grid-cols-3 md:gap-8 md:grid-cols-1;
 }
 </style>

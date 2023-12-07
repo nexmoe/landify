@@ -1,8 +1,7 @@
 <template>
     <iframe
         id="video"
-        width="100%"
-        :height="height"
+        class="aspect-video w-full"
         frameborder="0"
         :src="url"
         referrerpolicy="unsafe-url"
@@ -10,12 +9,7 @@
     ></iframe>
 </template>
 <script setup>
-import { onMounted, ref } from 'vue'
-const height = ref(405)
 defineProps({
     url: null
-})
-onMounted(() => {
-    height.value = (document.getElementById('video').clientWidth * 9) / 16
 })
 </script>

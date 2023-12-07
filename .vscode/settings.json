@@ -1,0 +1,8 @@
+{
+  "css.customData": [
+    ".vscode/unocss.json"
+  ],
+  "files.associations": {
+    "*.css": "postcss"
+  }
+}

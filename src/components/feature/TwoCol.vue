@@ -3,7 +3,7 @@
         <div
             v-for="item in feature.items"
             :key="item"
-            class="card rounded-3xl"
+            class="card shadow-2xl rounded-3xl"
             :class="[item.color]"
         >
             <div
@@ -39,7 +39,6 @@ defineProps({
     width: 100%;
     height: 100%;
     min-height: 200px;
-    box-shadow: var(--xs-shadow-7);
     overflow: hidden;
     display: flex;
     flex-direction: column;
