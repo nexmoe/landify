@@ -30,14 +30,17 @@
   ],
   "scripts": {
     "build": "run-s gen && unbuild",
-    "dev": "unbuild --stub",
+    "dev": "run-s gen && run-s docs:dev",
     "gen": "run-p gen:*",
     "gen:index": "vite-node ./scripts/genIndex.ts",
     "lint": "run-p lint:*",
     "lint:prettier": "prettier --check .",
     "lint:eslint": "eslint --cache .",
     "lint:ts": "tsc --noEmit",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
   },
   "dependencies": {
     "lax.js": "^2.0.3"
@@ -48,6 +51,7 @@
     "@typescript-eslint/parser": "^6.13.2",
     "@unocss/eslint-config": "^0.58.0",
     "@unocss/postcss": "^0.58.0",
+    "@unocss/preset-wind": "^0.58.0",
     "consola": "^3.2.3",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
@@ -64,6 +68,7 @@
     "unbuild": "^2.0.0",
     "unocss": "^0.58.0",
     "vite-node": "^0.34.6",
+    "vitepress": "1.0.0-rc.31",
     "vue": "^3.3.7"
   }
 }

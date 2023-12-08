@@ -1,9 +1,10 @@
 // uno.config.ts
-import { defineConfig, presetUno } from 'unocss'
+import { defineConfig } from 'unocss'
+import presetWind from '@unocss/preset-wind'
 
 export default defineConfig({
     content: {
         filesystem: ['**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}']
     },
-    presets: [presetUno()]
+    presets: [presetWind()]
 })

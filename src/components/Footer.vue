@@ -1,6 +1,5 @@
 <template>
     <div class="border-t border-gray-200 pt-16 line-height-8">
-        <Apps />
         <div class="container">
             <div
                 class="flex flex-row flex-wrap justify-center md:justify-between"
@@ -61,8 +60,6 @@
 </template>
 
 <script setup>
-import Apps from './Apps.vue'
-
 defineProps({
     pages: {
         type: Array,
