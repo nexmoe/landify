@@ -38,13 +38,13 @@ const { pages, links, qrcode } = withDefaults(defineProps<Props>(), {
             <div class="flex flex-wrap gap-16">
                 <div
                     v-for="item in links"
-                    :key="item"
+                    :key="item.title"
                     class="flex-auto border-gray-300 border-solid"
                 >
                     <div class="text-lg font-bold">{{ item.title }}</div>
                     <a
                         v-for="child in item.children"
-                        :key="child"
+                        :key="child.title"
                         :href="child.url"
                         class="link mr-4 inline-block"
                         target="_blank"
@@ -60,7 +60,7 @@ const { pages, links, qrcode } = withDefaults(defineProps<Props>(), {
             <div class="-mx-3 divide-x divide-gray-300">
                 <a
                     v-for="item in pages"
-                    :key="item"
+                    :key="item.title"
                     class="px-3"
                     :href="item.url"
                     >{{ item.title }}</a

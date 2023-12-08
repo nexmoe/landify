@@ -17,6 +17,7 @@
     "paths": {
       "~/*": ["./*"]
     },
+    "isolatedModules": true
   },
   "include": ["."],
   "exclude": ["dist", "node_modules"]

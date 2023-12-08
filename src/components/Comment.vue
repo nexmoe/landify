@@ -18,7 +18,7 @@ const { comments } = withDefaults(defineProps<Props>(), {
     <div class="nex-comment">
         <div
             v-for="item in comments"
-            :key="item"
+            :key="item.comment"
             class="mb-8 break-inside-avoid rounded-2xl p-8 shadow-md"
         >
             <svg
