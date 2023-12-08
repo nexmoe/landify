@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { Footer, Comment } from './src'
+import { Footer, Comment, Section } from './src'
 import data from './data.json'
 </script>
 
 <template>
-    <div class="nex-container">
+    <Section color="gray">
+        <template #title>用户评价</template>
+        <template #des>Test</template>
         <Comment :comments="data.comments" />
-    </div>
+    </Section>
     <Footer :pages="data.footer.pages">
         <template #left>
             Copyright © {{ new Date().getFullYear() }}
