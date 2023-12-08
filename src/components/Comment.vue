@@ -1,20 +1,28 @@
-<script setup>
-defineProps({
-    feature: {
-        type: Object,
-        require: true
-    }
+<script setup lang="ts">
+import { defineProps, withDefaults } from 'vue'
+
+interface Comment {
+    comment: string
+    author: string
+}
+
+interface Props {
+    comments: Comment[]
+}
+
+const { comments } = withDefaults(defineProps<Props>(), {
+    comments: () => []
 })
 </script>
 <template>
     <div class="nex-comment">
         <div
-            v-for="item in feature.items"
+            v-for="item in comments"
             :key="item"
-            class="bg-vp-c-bg mb-8 break-inside-avoid rounded-lg p-8 shadow-md"
+            class="mb-8 break-inside-avoid rounded-2xl p-8 shadow-md"
         >
             <svg
-                class="h-8 text-gray-500"
+                class="h-8 text-gray-400"
                 viewBox="0 0 24 27"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -34,6 +42,6 @@ defineProps({
 
 <style scoped>
 .nex-comment {
-    @apply mx-auto w-full md:grid md:grid-cols-3 md:gap-8 md:grid-cols-1;
+    @apply mx-auto w-full md:columns-3 md:gap-8;
 }
 </style>

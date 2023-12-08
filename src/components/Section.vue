@@ -1,16 +1,22 @@
 <template>
     <div class="section">
         <div class="header">
-            <div class="title"></div>
-            <div class="des"></div>
+            <div class="title">
+                <slot name="title"></slot>
+            </div>
+            <div class="des">
+                <slot name="des"></slot>
+            </div>
         </div>
-        <div class="body"></div>
+        <div class="body">
+            <slot />
+        </div>
     </div>
 </template>
 
 <style scoped>
 .section {
-    @apply: py-20 overflow-unset;
+    @apply: py-16 overflow-unset;
 }
 
 .header {

@@ -6,6 +6,7 @@ import { consola } from 'consola'
 const componentDirectory = path.join(__dirname, '../src/components')
 const srcDirectory = path.join(__dirname, '../src')
 const outputFile = path.join(srcDirectory, 'index.ts')
+const defaultFile = path.join(srcDirectory, 'indexd.ts')
 
 async function generateIndexFile() {
     try {
@@ -15,12 +16,16 @@ async function generateIndexFile() {
         const indexContent = files
             .map((file) => {
                 const componentName = path.basename(file, '.vue')
-                return `export * as ${componentName} from './components/${file}'`
+                return `export { default as ${componentName} } from './components/${file}'`
             })
             .join('\n')
 
+        const defaultExport = fs.readFileSync(defaultFile, 'utf-8')
         // 写入index.ts文件
-        await fs.outputFile(outputFile, indexContent + '\n')
+        await fs.outputFile(
+            outputFile,
+            defaultExport + '\n' + indexContent + '\n'
+        )
 
         consola.success(`Generated index.ts file at ${outputFile}`)
     } catch (error) {

@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nex-container {
+    @apply container px-4 md:px-24 mx-auto;
+}
