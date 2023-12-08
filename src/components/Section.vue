@@ -29,23 +29,25 @@ const { color } = withDefaults(defineProps<Props>(), {
 
 <style scoped>
 .section {
-    @apply py-28 overflow-visible;
+    @apply py-36 overflow-visible;
 }
 
 .header {
-    @apply pb-16 text-center space-y-6;
+    @apply pb-16 space-y-6 w-3/4;
+    margin-left: 8.333333333%;
 }
 
 .title {
-    @apply text-3xl font-bold md:text-5xl;
+    @apply !text-6xl font-bold md:text-5xl;
+    color: #00b2aa;
 }
 
 .des {
-    @apply text-base font-normal text-gray-600 md:text-lg;
+    @apply text-lg font-normal md:text-lg;
 }
 
 .section.gray {
-    background-color: var(--vp-c-bg-soft);
+    background: linear-gradient(0deg, #f5f5f7 40%, white 60%);
 }
 
 .section.black {

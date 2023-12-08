@@ -6,7 +6,9 @@ import data from './data.json'
 <template>
     <Section color="gray">
         <template #title>用户评价</template>
-        <template #des>Test</template>
+        <template #des
+            >网络世界万物互联，轻松链接到任何地方、使用任何设备访问。让你不仅能启动哔哩哔哩，更能直达感兴趣的视频
+        </template>
         <Comment :comments="data.comments" />
     </Section>
     <Footer :pages="data.footer.pages">

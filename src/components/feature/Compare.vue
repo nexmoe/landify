@@ -63,19 +63,19 @@ onMounted(() => {
     height: 250vh;
 }
 .compare-item {
-    @apply: relative w-full h-full;
+    @apply relative w-full h-full;
     max-width: calc(100vw - 100px);
     max-height: calc(100vh - 200px);
 }
 .sticky {
-    @apply: overflow-visible;
+    @apply overflow-visible;
 }
 .sticky .compare-item {
-    @apply: sticky;
+    position: sticky;
     top: 100px;
 }
 .picture {
-    @apply: w-full;
+    @apply w-full;
     aspect-ratio: 1500 / 722;
 }
 </style>
