@@ -1,6 +1,4 @@
 {
-  "download": "立刻免费获取",
-  "apps": "我们的应用",
   "comments": [
     {
       "comment": "非常好。页面美观。理念先进：“与其在信息流中漂泊，不如反刍收藏过的高质量内容。”",
@@ -34,48 +32,15 @@
   "footer": {
     "links": [
       {
-        "title": "我的老师",
+        "title": "关于作者",
         "children": [
           {
-            "title": "flomo",
-            "url": "https://flomoapp.com/"
-          },
-          {
-            "title": "简约至上",
-            "url": "https://books.nexmoe.com/2021/AGC2WW.html"
+            "title": "Nexmoe",
+            "url": "https://i.nexmoe.com/"
           },
           {
             "title": "轻惋起始页",
             "url": "https://nexmoe.com/537283684.html"
-          }
-        ]
-      },
-      {
-        "title": "友情链接",
-        "children": [
-          {
-            "title": "Hitokoto",
-            "url": "https://hitokoto.cn/"
-          },
-          {
-            "title": "快写鸭",
-            "url": "https://kuaixieya.com/"
-          },
-          {
-            "title": "图欧学习资源库",
-            "url": "https://tuostudy.com/"
-          },
-          {
-            "title": "集美美图",
-            "url": "https://jimeiapp.zhangbingdev.com/"
-          },
-          {
-            "title": "新趣集",
-            "url": "https://www.xinquji.com/"
-          },
-          {
-            "title": "图欧学习资源导航",
-            "url": "https://tuostudy.upnb.top"
           }
         ]
       }

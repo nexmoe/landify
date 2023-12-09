@@ -16,7 +16,7 @@ async function generateIndexFile() {
         const indexContent = files
             .map((file) => {
                 const componentName = path.basename(file, '.vue')
-                return `export { default as ${componentName} } from './components/${file}'`
+                return `export { default as L${componentName} } from './components/${file}'`
             })
             .join('\n')
 

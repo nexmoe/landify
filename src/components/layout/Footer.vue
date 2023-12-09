@@ -16,13 +16,13 @@ interface Page {
     url: string
 }
 
-interface Props {
+export interface LFooterProps {
     pages: Page[]
     links: LinkGroup[]
     qrcode: string
 }
 
-const { pages, links, qrcode } = withDefaults(defineProps<Props>(), {
+const { pages, links, qrcode } = withDefaults(defineProps<LFooterProps>(), {
     pages: () => [],
     links: () => [],
     qrcode: ''
@@ -30,7 +30,7 @@ const { pages, links, qrcode } = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-    <div class="nex-container py-16 line-height-8 space-y-6">
+    <div class="l-container py-16 text-sm line-height-8 space-y-6">
         <div
             v-if="links.length > 0 || qrcode"
             class="flex flex-row flex-wrap justify-center lg:justify-between"
@@ -41,7 +41,7 @@ const { pages, links, qrcode } = withDefaults(defineProps<Props>(), {
                     :key="item.title"
                     class="flex-auto border-gray-300 border-solid"
                 >
-                    <div class="text-lg font-bold">{{ item.title }}</div>
+                    <div class="font-bold">{{ item.title }}</div>
                     <a
                         v-for="child in item.children"
                         :key="child.title"

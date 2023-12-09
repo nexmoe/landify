@@ -1,25 +1,15 @@
-<template>
-    <div class="compare pt-8">
-        <div class="compare-item">
-            <div class="picture absolute overflow-hidden rounded-xl shadow-lg">
-                <img class="h-full w-full" :src="props.compare?.after" />
-            </div>
-            <div class="picture after absolute overflow-hidden">
-                <img
-                    class="h-full w-full rounded-xl"
-                    :src="props.compare?.before"
-                />
-            </div>
-        </div>
-    </div>
-</template>
-
-<script setup>
+<script setup lang="ts">
 import lax from 'lax.js'
-import { onMounted } from 'vue'
+import { onMounted, defineProps, withDefaults } from 'vue'
 
-const props = defineProps({
-    compare: {}
+export interface LCompareProps {
+    before: string
+    after: string
+}
+
+const { before, after } = withDefaults(defineProps<LCompareProps>(), {
+    before: '',
+    after: ''
 })
 
 onMounted(() => {
@@ -31,8 +21,7 @@ onMounted(() => {
     })
 
     // Add animation bindings to elements
-    const compare = document.querySelector('.compare')
-    const compareItem = document.querySelector('.compare-item')
+    const compare = document.querySelector('.l-compare')
     const easing = 'easeInQuad'
     lax.addElements(
         '.after',
@@ -44,7 +33,7 @@ onMounted(() => {
             }
         },
         {
-            onUpdate: function (driverValues, domElement) {
+            onUpdate: function (driverValues) {
                 const scrollY = driverValues.scrollY[0]
                 if (scrollY >= compare.offsetTop - 63) {
                     compare.classList.add('sticky')
@@ -57,12 +46,25 @@ onMounted(() => {
 })
 </script>
 
+<template>
+    <div class="l-compare">
+        <div class="l-compare-item">
+            <div class="l-picture">
+                <img class="h-full w-full" :src="before" />
+            </div>
+            <div class="l-picture after">
+                <img class="h-full w-full" :src="after" />
+            </div>
+        </div>
+    </div>
+</template>
+
 <style scoped>
-.compare {
+.l-compare {
     @apply flex overflow-hidden justify-center;
     height: 250vh;
 }
-.compare-item {
+.l-compare-item {
     @apply relative w-full h-full;
     max-width: calc(100vw - 100px);
     max-height: calc(100vh - 200px);
@@ -70,12 +72,12 @@ onMounted(() => {
 .sticky {
     @apply overflow-visible;
 }
-.sticky .compare-item {
+.sticky .l-compare-item {
     position: sticky;
     top: 100px;
 }
-.picture {
-    @apply w-full;
+.l-picture {
+    @apply w-full absolute overflow-hidden rounded-xl shadow-lg;
     aspect-ratio: 1500 / 722;
 }
 </style>

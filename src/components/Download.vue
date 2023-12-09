@@ -1,7 +1,7 @@
 <template>
     <div class="nexmoe-container">
         <div class="store">
-            <a
+            <!-- <a
                 :class="{ active: activeb == 'Edge' }"
                 :href="major.download.edge"
                 target="_blank"
@@ -26,7 +26,7 @@
             >
             <a class="download rounded-lg" :href="major.download.other"
                 ><i class="iconfont">&#xe640;</i>{{ major.other }}</a
-            >
+            > -->
         </div>
     </div>
 </template>
