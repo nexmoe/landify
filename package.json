@@ -43,6 +43,7 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
+    "@xiaoshuapp/theme": "^1.0.4",
     "lax.js": "^2.0.3"
   },
   "devDependencies": {

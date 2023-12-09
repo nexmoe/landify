@@ -20,7 +20,7 @@ const { item, position, body } = withDefaults(defineProps<LTileProps>(), {
 </script>
 
 <template>
-    <div class="l-tile" :class="[`l-${position}`, `l-body-${body}`]">
+    <div class="l-tile" :class="[`l-position-${position}`, `l-body-${body}`]">
         <div class="l-header" :class="{ 'l-a': body === 'a' }">
             <div class="l-title">{{ item?.title }}<slot name="title" /></div>
             <div v-if="item?.des" class="l-des">{{ item?.des }}</div>
@@ -49,25 +49,36 @@ const { item, position, body } = withDefaults(defineProps<LTileProps>(), {
 }
 
 /* tile position */
-.l-tile.l-top {
+.l-tile.l-position-top {
     @apply flex-col-reverse;
 }
-.l-tile.l-bottom {
+.l-tile.l-position-top .l-header {
+    @apply pt-0 pb-20;
+}
+.l-tile.l-position-top .l-body {
+    @apply pb-0 pt-20;
+}
+.l-tile.l-position-bottom {
     @apply flex-col;
 }
-.l-tile.l-left {
+
+.l-tile.l-position-left {
     @apply flex-row-reverse;
 }
-.l-tile.l-right {
+.l-tile.l-position-right {
     @apply flex-row;
 }
-.l-tile.l-left .l-header,
-.l-tile.l-right .l-header {
-    @apply flex-[5] justify-center flex flex-col;
+.l-tile.l-position-left,
+.l-tile.l-position-right {
+    @apply py-20 px-24;
 }
-.l-tile.l-left .l-body,
-.l-tile.l-right .l-body {
-    @apply flex-[6];
+.l-tile.l-position-left .l-header,
+.l-tile.l-position-right .l-header {
+    @apply flex-[5] justify-center flex flex-col p-0;
+}
+.l-tile.l-position-left .l-body,
+.l-tile.l-position-right .l-body {
+    @apply flex-[6] p-0;
 }
 
 /* body position */

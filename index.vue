@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import {
     LFooter,
     LComment,
@@ -9,16 +10,44 @@ import {
     LInfinite
 } from './src'
 import data from './data.json'
+import theme from '@xiaoshuapp/theme/manifest.json'
+
+console.log(theme)
+
+const list = ref([
+    {
+        img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-17-27.png?fmt=webp&w=1000?fmt=webp&w=1000'
+    },
+    {
+        img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-35-24.png?fmt=webp&w=1000?fmt=webp&w=1000'
+    },
+
+    {
+        img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2021-12-21_17-37-31.png?fmt=webp&w=1000?fmt=webp&w=1000'
+    },
+    {
+        img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-06-07_23-26-40.png?fmt=webp&w=1000?fmt=webp&w=1000'
+    },
+    {
+        img: 'https://xiaoshu.s3.bitiful.net/QQ图片20220607234517.jpg?fmt=webp&w=1000?fmt=webp&w=1000'
+    },
+    ...theme.map((x: any) => {
+        return {
+            img: x.src
+        }
+    })
+])
 </script>
 
 <template>
     <LSection cover>
         <template #title>
-            费尽心思折腾主页<br />
-            <div class="nex-colored">不如好好整理收藏夹</div>
+            <div class="nex-colored">Landify</div>
         </template>
-        <template #des
-            >轻松一步，收藏夹变成强大的新标签页<br />助你聚焦真正重要的事情
+        <template #des>
+            Presentational Components for Landing Page, mainly build for
+            VitePress.<br />
+            Help you quickly build a landing page.
         </template>
         <LCompare
             before="https://i.dawnlab.me/3f8088adb060eec2e9a1a10ab467695f.png/nexmoe"
@@ -27,10 +56,10 @@ import data from './data.json'
     </LSection>
     <LSection color="purple" left>
         <template #title> 连接访问收藏，<br />随时随地。</template>
-        <!-- <template #des
+        <template #des
             >网络世界万物互联，轻松链接到任何地方、使用任何设备访问。让你不仅能启动哔哩哔哩，更能直达感兴趣的视频
-        </template> -->
-        <!-- <LTile
+        </template>
+        <LTile
             :item="{
                 title: '你的创意，全屏幕呈现。',
                 des: 'iPad 生动鲜活的视网膜显示屏，总会让你不知不觉沉浸其中。只需轻点一下，即可放大生动鲜活的视网膜显示屏，总会让你不知不觉沉浸其中。只需轻点一下，即可放大生动鲜活的视网膜显示屏，总会让你不知不觉沉浸其中。只需轻点一下，即可放大 App 预览，全屏体验你的 app。你也可以自定义 Battleship 和 Brick Breaker 等内置游戏，然后将画面切换至全屏，尽情投入体验。'
@@ -40,7 +69,7 @@ import data from './data.json'
             <img
                 loading="lazy"
                 src="https://www.apple.com.cn/v/swift/playgrounds/g/images/overview/explore_creation__famblwu7nuq2_large_2x.png"
-        /></LTile> -->
+        /></LTile>
         <LGrid :grid="2">
             <LTile
                 :item="{
@@ -67,39 +96,26 @@ import data from './data.json'
             </LTile>
         </LGrid>
     </LSection>
+    <LSection color="purple" left>
+        <template #title> 连接访问收藏，<br />随时随地。</template>
+        <template #des
+            >网络世界万物互联，轻松链接到任何地方、使用任何设备访问。让你不仅能启动哔哩哔哩，更能直达感兴趣的视频
+        </template>
+        <LTile
+            :item="{
+                title: '你的创意，全屏幕呈现。',
+                des: '从“编程入门”指南开始，你将使用专业开发者日常所用的代码来攻克各个目标。随着学习的一步步深入，你也将迎来更高级别编程概念的挑战。你还可在所学基础之上继续深造，编写更复杂的代码。'
+            }"
+            position="left"
+        >
+            <img
+                loading="lazy"
+                src="https://www.apple.com.cn/v/swift/playgrounds/g/images/overview/commands_fallback__e4n1mvruyoqe_large_2x.jpg"
+        /></LTile>
+    </LSection>
     <LSection cover>
         <template #title>个性化。打造专属标签页</template>
-        <LInfinite
-            :list="[
-                {
-                    img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-17-27.png?fmt=webp&w=1000?fmt=webp&w=1000'
-                },
-                {
-                    img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-35-24.png?fmt=webp&w=1000?fmt=webp&w=1000'
-                },
-                {
-                    img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-35-44.png?fmt=webp&w=1000?fmt=webp&w=1000'
-                },
-                {
-                    img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2021-12-21_17-37-31.png?fmt=webp&w=1000?fmt=webp&w=1000'
-                },
-                {
-                    img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2021-12-21_17-38-08.png?fmt=webp&w=1000?fmt=webp&w=1000'
-                },
-                {
-                    img: 'https://xiaoshu.s3.bitiful.net/04f2a22d06159f86.png?fmt=webp&w=1000?fmt=webp&w=1000'
-                },
-                {
-                    img: 'https://xiaoshu.s3.bitiful.net/d971054b90cc6a7a.png?fmt=webp&w=1000?fmt=webp&w=1000'
-                },
-                {
-                    img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-06-07_23-26-40.png?fmt=webp&w=1000?fmt=webp&w=1000'
-                },
-                {
-                    img: 'https://xiaoshu.s3.bitiful.net/QQ图片20220607234517.jpg?fmt=webp&w=1000?fmt=webp&w=1000'
-                }
-            ]"
-        />
+        <LInfinite :list="list" />
     </LSection>
     <LSection color="gray">
         <template #title>用户评价</template>

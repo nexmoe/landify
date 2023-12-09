@@ -32,11 +32,11 @@ const listShuffled = shuffle(list)
 
 <style scoped>
 .l-infinite {
-    @apply w-full overflow-hidden flex flex-col;
+    @apply w-full overflow-hidden flex flex-col gap-6;
 }
 
 .l-infinite-item {
-    @apply flex flex-row;
+    @apply flex flex-row gap-6;
     animation: right-to-left 25s linear infinite;
 }
 
@@ -49,12 +49,12 @@ const listShuffled = shuffle(list)
 }
 
 .row {
-    @apply flex flex-row;
+    @apply flex flex-row gap-6;
     height: 50vh;
 }
 
 .card {
-    @apply h-full overflow-hidden block p-4;
+    @apply h-full overflow-hidden block;
     font-size: 0;
 }
 

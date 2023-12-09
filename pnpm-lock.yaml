@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@xiaoshuapp/theme':
+    specifier: ^1.0.4
+    version: 1.0.4
   lax.js:
     specifier: ^2.0.3
     version: 2.0.3
@@ -1767,6 +1770,10 @@ packages:
       - '@vue/composition-api'
       - vue
     dev: true
+
+  /@xiaoshuapp/theme@1.0.4:
+    resolution: {integrity: sha512-pGyeAG+UbwwfL+OKcPVRn/6DjTZ3UTnxENHkMCN4yhe+/6UZ41RbYjGRl2jmQ3SQSow8LkhfVPIQ0T4ToHHEJg==}
+    dev: false
 
   /acorn-jsx@5.3.2(acorn@8.11.2):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
