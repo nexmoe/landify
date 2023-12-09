@@ -59,7 +59,7 @@ const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
 }
 
 .l-section.gray {
-    background: linear-gradient(0deg, #f5f5f7 40%, white 60%);
+    background: linear-gradient(0deg, #f5f5f7 1%, white 99%);
 }
 
 .l-section.black {
@@ -68,6 +68,7 @@ const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
 }
 
 .l-section.purple {
+    --l-section-color: #5655d5;
     background: linear-gradient(180deg, white 18%, rgba(255, 255, 255, 0) 62%),
         linear-gradient(
             340deg,
@@ -84,7 +85,6 @@ const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
             rgba(235, 220, 254, 0.6) 20%,
             rgba(255, 220, 254, 0) 65%
         );
-    --l-section-color: #5655d5;
 }
 
 .l-section.blue {

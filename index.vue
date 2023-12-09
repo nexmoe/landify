@@ -1,5 +1,13 @@
 <script setup lang="ts">
-import { LFooter, LComment, LSection, LTile, LGrid, LCompare } from './src'
+import {
+    LFooter,
+    LComment,
+    LSection,
+    LTile,
+    LGrid,
+    LCompare,
+    LInfinite
+} from './src'
 import data from './data.json'
 </script>
 
@@ -58,6 +66,40 @@ import data from './data.json'
                 />
             </LTile>
         </LGrid>
+    </LSection>
+    <LSection cover>
+        <template #title>个性化。打造专属标签页</template>
+        <LInfinite
+            :list="[
+                {
+                    img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-17-27.png?fmt=webp&w=1000?fmt=webp&w=1000'
+                },
+                {
+                    img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-35-24.png?fmt=webp&w=1000?fmt=webp&w=1000'
+                },
+                {
+                    img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-35-44.png?fmt=webp&w=1000?fmt=webp&w=1000'
+                },
+                {
+                    img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2021-12-21_17-37-31.png?fmt=webp&w=1000?fmt=webp&w=1000'
+                },
+                {
+                    img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2021-12-21_17-38-08.png?fmt=webp&w=1000?fmt=webp&w=1000'
+                },
+                {
+                    img: 'https://xiaoshu.s3.bitiful.net/04f2a22d06159f86.png?fmt=webp&w=1000?fmt=webp&w=1000'
+                },
+                {
+                    img: 'https://xiaoshu.s3.bitiful.net/d971054b90cc6a7a.png?fmt=webp&w=1000?fmt=webp&w=1000'
+                },
+                {
+                    img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-06-07_23-26-40.png?fmt=webp&w=1000?fmt=webp&w=1000'
+                },
+                {
+                    img: 'https://xiaoshu.s3.bitiful.net/QQ图片20220607234517.jpg?fmt=webp&w=1000?fmt=webp&w=1000'
+                }
+            ]"
+        />
     </LSection>
     <LSection color="gray">
         <template #title>用户评价</template>

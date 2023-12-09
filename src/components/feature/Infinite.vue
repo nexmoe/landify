@@ -1,8 +1,26 @@
+<script setup lang="ts">
+import { defineProps, withDefaults } from 'vue'
+
+export interface LInfiniteProps {
+    list: {
+        img: string
+    }[]
+}
+
+const { list } = withDefaults(defineProps<LInfiniteProps>(), {
+    list: () => []
+})
+const shuffle = (arr) => {
+    return arr.sort(() => Math.random() - 0.5)
+}
+const listShuffled = shuffle(list)
+</script>
+
 <template>
-    <div class="infinite">
+    <div class="l-infinite">
         <div v-for="i in 3" :key="i" class="row">
-            <div v-for="x in 2" :key="x" class="infinite-item">
-                <template v-for="(item, index) in list" :key="index">
+            <div v-for="x in 2" :key="x" class="l-infinite-item">
+                <template v-for="(item, index) in listShuffled" :key="index">
                     <div v-if="(index + 1) % 3 == i - 1" class="card">
                         <img loading="lazy" :src="item.img" />
                     </div>
@@ -12,71 +30,32 @@
     </div>
 </template>
 
-<script setup>
-const shuffle = (arr) => {
-    return arr.sort(() => Math.random() - 0.5)
-}
-const list = shuffle([
-    {
-        img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-17-27.png?fmt=webp&w=1000?fmt=webp&w=1000'
-    },
-    {
-        img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-35-24.png?fmt=webp&w=1000?fmt=webp&w=1000'
-    },
-    {
-        img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-35-44.png?fmt=webp&w=1000?fmt=webp&w=1000'
-    },
-    {
-        img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2021-12-21_17-37-31.png?fmt=webp&w=1000?fmt=webp&w=1000'
-    },
-    {
-        img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2021-12-21_17-38-08.png?fmt=webp&w=1000?fmt=webp&w=1000'
-    },
-    {
-        img: 'https://xiaoshu.s3.bitiful.net/04f2a22d06159f86.png?fmt=webp&w=1000?fmt=webp&w=1000'
-    },
-    {
-        img: 'https://xiaoshu.s3.bitiful.net/d971054b90cc6a7a.png?fmt=webp&w=1000?fmt=webp&w=1000'
-    },
-    {
-        img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-06-07_23-26-40.png?fmt=webp&w=1000?fmt=webp&w=1000'
-    },
-    {
-        img: 'https://xiaoshu.s3.bitiful.net/QQ图片20220607234517.jpg?fmt=webp&w=1000?fmt=webp&w=1000'
-    }
-])
-</script>
-
 <style scoped>
-.infinite {
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-flow: column;
+.l-infinite {
+    @apply w-full overflow-hidden flex flex-col;
 }
 
-.infinite-item {
-    display: flex;
-    flex-direction: row;
+.l-infinite-item {
+    @apply flex flex-row;
     animation: right-to-left 25s linear infinite;
 }
 
-.row:nth-child(2n + 2) .infinite-item {
+.row:nth-child(2n + 2) .l-infinite-item {
     animation: left-to-right 25s linear infinite;
 }
 
+.row:hover .l-infinite-item {
+    animation-play-state: paused;
+}
+
 .row {
-    height: 45vh;
-    display: flex;
-    flex-direction: row;
+    @apply flex flex-row;
+    height: 50vh;
 }
 
 .card {
-    height: 100%;
-    overflow: hidden;
-    display: block;
+    @apply h-full overflow-hidden block p-4;
     font-size: 0;
-    padding: 16px;
 }
 
 img {
