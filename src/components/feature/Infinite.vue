@@ -36,7 +36,7 @@ const listShuffled = shuffle(list)
 }
 
 .l-infinite-item {
-    @apply flex flex-row gap-6;
+    @apply flex flex-row;
     animation: right-to-left 25s linear infinite;
 }
 
@@ -49,12 +49,12 @@ const listShuffled = shuffle(list)
 }
 
 .row {
-    @apply flex flex-row gap-6;
+    @apply flex flex-row;
     height: 50vh;
 }
 
 .card {
-    @apply h-full overflow-hidden block;
+    @apply h-full overflow-hidden block mr-6;
     font-size: 0;
 }
 

@@ -8,7 +8,7 @@ const components = {
 }
 
 export interface LAutoSectionProps extends LSectionProps {
-    type: 'LTile'
+    type?: 'LTile'
     items: []
 }
 
