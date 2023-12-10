@@ -122,7 +122,8 @@ const list = ref([
     },
     ...theme.map((x: any) => {
         return {
-            img: x.src
+            img: x.src,
+            title: `主题 ${x.name}`
         }
     })
 ])
@@ -214,7 +215,13 @@ const list = ref([
     <LFooter :links="data.footer.links" :pages="data.footer.pages">
         <template #left>
             Copyright © {{ new Date().getFullYear() }}
-            <a href="https://i.nexmoe.com/" target="_blank">Nexmoe</a>.
+            <a href="https://i.nexmoe.com/" target="_blank">Nexmoe</a>
+        </template>
+        <template #right>
+            Build with
+            <a href="https://github.com/nexmoe/landify" target="_blank"
+                >Landify</a
+            >
         </template>
     </LFooter>
 </template>

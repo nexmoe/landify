@@ -5,6 +5,7 @@ import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
 interface LInfiniteItem {
     img: string
+    title?: string
 }
 
 export interface LInfiniteProps {
@@ -21,7 +22,9 @@ const listShuffled = shuffle(list)
 
 onMounted(() => {
     Fancybox.bind('[data-fancybox]', {
-        // Your custom options
+        Thumbs: {
+            showOnStart: false
+        }
     })
 })
 </script>
@@ -35,7 +38,7 @@ onMounted(() => {
                         <a
                             :href="item.img"
                             data-fancybox="gallery"
-                            :data-caption="item.img"
+                            :data-caption="item.title"
                         >
                             <img loading="lazy" :src="item.img" />
                         </a>
