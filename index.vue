@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import theme from '@xiaoshuapp/theme/manifest.json'
 import {
     LFooter,
     LComment,
@@ -7,12 +8,100 @@ import {
     LTile,
     LGrid,
     LCompare,
-    LInfinite
+    LInfinite,
+    LAutoSection
 } from './src'
-import data from './data.json'
-import theme from '@xiaoshuapp/theme/manifest.json'
 
-console.log(theme)
+const data = {
+    comments: [
+        {
+            comment:
+                '非常好。页面美观。理念先进：“与其在信息流中漂泊，不如反刍收藏过的高质量内容。”',
+            author: 'Cheng Ma, 2022年7月18日 on Chrome'
+        },
+        {
+            comment: '用起来非常舒服,  以前很多文章教程在收藏夹吃灰的都出来了',
+            author: 'zhi wang, 2022年4月21日'
+        },
+        {
+            comment:
+                '真的算宝藏扩展了，没有太多很重的东西，就从自己的收藏夹建首页，正是我需要的功能',
+            author: '蒋蒋, 2022年7月19日 on Firefox'
+        },
+        {
+            comment:
+                '这个扩展很符合我的心意，能在打出关键词的瞬间推荐书签的网站，这个独特功能很实用。而且自定义性很强',
+            author: '堡包, 2022年7月21日 on Edge'
+        },
+        {
+            comment:
+                '以往喜欢聚焦类的标签页，现在发现了小舒同学，能把书签以扁平化图形的方式放在页面上，清晰明了。',
+            author: 'Li, 2022年7月22日 on Edge'
+        },
+        {
+            comment:
+                '太棒了，我真的不想折腾拨号页花里胡哨的功能，我只想快速导入链接，然后生成一个简洁的图标。',
+            author: 'lele finley, 2022年7月30日 on Chrome'
+        },
+        {
+            comment:
+                '太喜欢小舒同学啦！因为是仓鼠所以收藏夹都特别臃肿，为了不让收藏的宝贝们吃灰我之前都是用notion把各平台的收藏夹整合到一起，这样特别费时间o(╥﹏╥)o 现在管理收藏夹就easy多啦',
+            author: 'dan酱, 2022年8月30日 on Firefox'
+        }
+    ],
+    footer: {
+        links: [
+            {
+                title: '关于作者',
+                children: [
+                    {
+                        title: 'Nexmoe',
+                        url: 'https://i.nexmoe.com/'
+                    },
+                    {
+                        title: '轻惋起始页',
+                        url: 'https://nexmoe.com/537283684.html'
+                    }
+                ]
+            },
+            {
+                title: '其它作品',
+                children: [
+                    {
+                        title: '小舒同学',
+                        url: 'https://xiaoshuapp.com/'
+                    },
+                    {
+                        title: 'Monitor Pro',
+                        url: 'https://marketplace.visualstudio.com/items?itemName=nexmoe.monitor-pro'
+                    }
+                ]
+            }
+        ],
+        pages: [
+            {
+                title: '💬社区讨论',
+                url: '/college/community/'
+            },
+            {
+                title: '🌏关注我们',
+                url: '/college/about/follow.html'
+            },
+            {
+                title: '🙇🏻特别鸣谢',
+                url: '/college/about/thx.html'
+            },
+            {
+                title: '🔐隐私政策',
+                url: '/college/agreement/privacy.html'
+            },
+            {
+                title: '👤用户协议',
+                url: '/college/agreement/terms.html'
+            }
+        ]
+    }
+}
 
 const list = ref([
     {
@@ -33,7 +122,8 @@ const list = ref([
     },
     ...theme.map((x: any) => {
         return {
-            img: x.src
+            img: x.src,
+            title: `主题 ${x.name}`
         }
     })
 ])
@@ -121,10 +211,17 @@ const list = ref([
         <template #title>用户评价</template>
         <LComment :comments="data.comments" />
     </LSection>
+    <LAutoSection></LAutoSection>
     <LFooter :links="data.footer.links" :pages="data.footer.pages">
         <template #left>
             Copyright © {{ new Date().getFullYear() }}
-            <a href="https://i.nexmoe.com/" target="_blank">Nexmoe</a>.
+            <a href="https://i.nexmoe.com/" target="_blank">Nexmoe</a>
+        </template>
+        <template #right>
+            Build with
+            <a href="https://github.com/nexmoe/landify" target="_blank"
+                >Landify</a
+            >
         </template>
     </LFooter>
 </template>
