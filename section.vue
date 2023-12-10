@@ -70,6 +70,30 @@ const datax: LAutoSectionProps[] = [
         color: 'purple'
     },
     {
+        title: 'Tile',
+        color: 'gray',
+        props: {
+            tiles: [
+                {
+                    title: '对比',
+                    img: 'https://i.dawnlab.me/3f8088adb060eec2e9a1a10ab467695f.png/nexmoe'
+                },
+                {
+                    title: '同步空间，全平台访问。',
+                    des: '轻松连接你的工作电脑与家用电脑，让你在任何地点、使用任何浏览器，便利访问全部收藏夹',
+                    size: '1_2',
+                    body: 'bl',
+                    img: 'https://i.dawnlab.me/cc15688dc52a551044b83a8a50117ccf.png/nexmoe'
+                },
+                {
+                    title: '对比',
+                    size: '1_2',
+                    img: 'https://i.dawnlab.me/3f8088adb060eec2e9a1a10ab467695f.png/nexmoe'
+                }
+            ]
+        }
+    },
+    {
         title: '对比',
         color: 'gray',
         props: {

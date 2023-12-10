@@ -1,37 +1,31 @@
 <script setup lang="ts">
-import LTile from './feature/Tile.vue'
+import LTileWrap from './layout/TileWrap.vue'
 import LInfinite from './feature/Infinite.vue'
 import LCompare from './feature/Compare.vue'
 import LComment from './feature/Comment.vue'
 import LSection from './layout/Section.vue'
 
 import { type LSectionProps } from './layout/Section.vue'
-import { type LTileProps } from './feature/Tile.vue'
+import { type LTileWrapProps } from './layout/TileWrap.vue'
 import { type LInfiniteProps } from './feature/Infinite.vue'
 import { type LCompareProps } from './feature/Compare.vue'
 import { type LCommentProps } from './feature/Comment.vue'
 
 const components = {
-    LTile,
+    LTileWrap,
     LInfinite,
     LCompare,
     LComment
-}
-
-interface Tile {
-    tile?: LTileProps
-    tiles?: LTileProps[]
 }
 
 export interface LAutoSectionProps extends LSectionProps {
     title: string
     des?: string
     props?:
-        | LTileProps
         | LInfiniteProps
         | LCompareProps
         | LCommentProps
-        | Tile
+        | LTileWrapProps
         | null
 }
 
@@ -43,7 +37,7 @@ const { color, left, cover, props } = withDefaults(
     }
 )
 
-let _type: 'LTile' | 'LInfinite' | 'LCompare' | 'LComment' | null = null
+let _type: 'LTileWrap' | 'LInfinite' | 'LCompare' | 'LComment' | null = null
 
 if (props) {
     if ('infinites' in props) {
@@ -55,8 +49,8 @@ if (props) {
     if ('before' in props || 'after' in props) {
         _type = 'LCompare'
     }
-    if ('tile' in props) {
-        _type = 'LTile'
+    if ('tiles' in props) {
+        _type = 'LTileWrap'
     }
 }
 </script>

@@ -161,18 +161,17 @@ const list = ref([
         /></LTile>
         <LGrid :grid="2">
             <LTile
-                :item="{
-                    title: '同步空间，全平台访问。',
-                    des: '轻松连接你的工作电脑与家用电脑，让你在任何地点、使用任何浏览器，便利访问全部收藏夹'
-                }"
+                title="同步空间，全平台访问。"
+                des="轻松连接你的工作电脑与家用电脑，让你在任何地点、使用任何浏览器，便利访问全部收藏夹"
                 body="bl"
+                size="1_2"
             >
                 <img
                     loading="lazy"
                     src="https://i.dawnlab.me/cc15688dc52a551044b83a8a50117ccf.png/nexmoe"
                 />
             </LTile>
-            <LTile body="a">
+            <LTile body="a" size="1_2">
                 <template #title>
                     <div style="margin: -14px; font-size: 1.25rem">
                         使用小舒同学 Pro，手机也可以轻松访问

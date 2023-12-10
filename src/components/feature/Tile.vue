@@ -7,22 +7,33 @@ export interface LTileItem {
 }
 
 export interface LTileProps {
-    item: LTileItem
+    title?: string
+    des?: string
     position?: 'top' | 'bottom' | 'left' | 'right'
     body?: 'bl' | 'b' | 'a' | null
+    size?: 1 | '1_2'
 }
 
-const { item, position, body } = withDefaults(defineProps<LTileProps>(), {
-    position: 'bottom',
-    body: null
-})
+const { title, des, position, body, size } = withDefaults(
+    defineProps<LTileProps>(),
+    {
+        title: '',
+        des: '',
+        position: 'bottom',
+        body: null,
+        size: 1
+    }
+)
 </script>
 
 <template>
-    <div class="l-tile" :class="[`l-position-${position}`, `l-body-${body}`]">
+    <div
+        class="l-tile"
+        :class="[`l-position-${position}`, `l-body-${body}`, `l-size-${size}`]"
+    >
         <div class="l-header" :class="{ 'l-a': body === 'a' }">
-            <div class="l-title">{{ item?.title }}<slot name="title" /></div>
-            <div v-if="item?.des" class="l-des">{{ item?.des }}</div>
+            <div class="l-title">{{ title }}<slot name="title" /></div>
+            <div v-if="des" class="l-des">{{ des }}</div>
         </div>
         <div class="l-body">
             <slot />
@@ -34,6 +45,12 @@ const { item, position, body } = withDefaults(defineProps<LTileProps>(), {
 .l-tile {
     @apply rounded-3xl bg-white flex flex-col gap-16 overflow-hidden;
 }
+.l-size-1 {
+    @apply col-span-12;
+}
+.l-size-1_2 {
+    @apply col-span-6;
+}
 .l-header {
     @apply space-y-1 text-base font-bold pt-20 px-24;
 }
@@ -42,6 +59,10 @@ const { item, position, body } = withDefaults(defineProps<LTileProps>(), {
 }
 .l-body {
     @apply w-full flex items-center h-full pb-20 px-24;
+}
+.l-size-1_2 .l-header,
+.l-size-1_2 .l-body {
+    @apply px-12;
 }
 .l-body :deep(img) {
     @apply w-full block;
