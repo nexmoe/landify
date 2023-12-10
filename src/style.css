@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .l-container {
-    @apply container px-4 md:px-24 mx-auto;
+    @apply container px-4 md:px-24 lg:px-56 mx-auto;
 }
