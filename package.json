@@ -43,6 +43,7 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.28",
     "@xiaoshuapp/theme": "^1.0.4",
     "gsap": "^3.12.3"
   },

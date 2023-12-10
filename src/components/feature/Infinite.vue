@@ -1,19 +1,29 @@
 <script setup lang="ts">
-import { defineProps, withDefaults } from 'vue'
+import { defineProps, withDefaults, onMounted } from 'vue'
+import { Fancybox } from '@fancyapps/ui'
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
+
+interface LInfiniteItem {
+    img: string
+}
 
 export interface LInfiniteProps {
-    list: {
-        img: string
-    }[]
+    list: LInfiniteItem[]
 }
 
 const { list } = withDefaults(defineProps<LInfiniteProps>(), {
     list: () => []
 })
-const shuffle = (arr) => {
+const shuffle = (arr: LInfiniteItem[]) => {
     return arr.sort(() => Math.random() - 0.5)
 }
 const listShuffled = shuffle(list)
+
+onMounted(() => {
+    Fancybox.bind('[data-fancybox]', {
+        // Your custom options
+    })
+})
 </script>
 
 <template>
@@ -22,7 +32,13 @@ const listShuffled = shuffle(list)
             <div v-for="x in 2" :key="x" class="l-infinite-item">
                 <template v-for="(item, index) in listShuffled" :key="index">
                     <div v-if="(index + 1) % 3 == i - 1" class="card">
-                        <img loading="lazy" :src="item.img" />
+                        <a
+                            :href="item.img"
+                            data-fancybox="gallery"
+                            :data-caption="item.img"
+                        >
+                            <img loading="lazy" :src="item.img" />
+                        </a>
                     </div>
                 </template>
             </div>
