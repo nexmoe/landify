@@ -6,11 +6,11 @@ interface Comment {
     author: string
 }
 
-interface Props {
+export interface LCommentProps {
     comments: Comment[]
 }
 
-const { comments } = withDefaults(defineProps<Props>(), {
+const { comments } = withDefaults(defineProps<LCommentProps>(), {
     comments: () => []
 })
 </script>

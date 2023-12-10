@@ -32,7 +32,7 @@
     "build": "run-s gen && unbuild",
     "dev": "run-s gen && run-s docs:dev",
     "gen": "run-p gen:*",
-    "gen:index": "vite-node ./scripts/genIndex.ts",
+    "gen:index": "vite-node ./scripts/genIndex.ts && prettier src/index.ts --write",
     "lint": "run-p lint:*",
     "lint:prettier": "prettier --check .",
     "lint:eslint": "eslint --cache .",

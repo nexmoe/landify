@@ -16,16 +16,13 @@ async function generateIndexFile() {
         const indexContent = files
             .map((file) => {
                 const componentName = path.basename(file, '.vue')
-                return `export { default as L${componentName} } from './components/${file}'`
+                return `export { default as L${componentName}, type L${componentName}Props } from './components/${file}'\n`
             })
             .join('\n')
 
         const defaultExport = fs.readFileSync(defaultFile, 'utf-8')
         // 写入index.ts文件
-        await fs.outputFile(
-            outputFile,
-            defaultExport + '\n' + indexContent + '\n'
-        )
+        await fs.outputFile(outputFile, defaultExport + '\n' + indexContent)
 
         consola.success(`Generated index.ts file at ${outputFile}`)
     } catch (error) {

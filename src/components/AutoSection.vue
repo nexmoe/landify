@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LTile from './feature/Tile.vue'
-import LSection from './layout/section/Section.vue'
-import { LSectionProps } from './layout/section/types'
+import LSection from './layout/Section.vue'
+import { type LSectionProps } from './layout/Section.vue'
 
 const components = {
     LTile
