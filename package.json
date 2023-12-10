@@ -40,7 +40,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "prepublish": "run-s build"
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.28",
