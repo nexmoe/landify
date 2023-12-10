@@ -1,6 +1,7 @@
 import './style.css'
 
 export { default as LApps } from './components/Apps.vue'
+export { default as LAutoSection } from './components/AutoSection.vue'
 export { default as LComment } from './components/Comment.vue'
 export { default as LDownload } from './components/Download.vue'
 export { default as LVideo } from './components/Video.vue'
@@ -9,4 +10,4 @@ export { default as LInfinite } from './components/feature/Infinite.vue'
 export { default as LTile } from './components/feature/Tile.vue'
 export { default as LFooter } from './components/layout/Footer.vue'
 export { default as LGrid } from './components/layout/Grid.vue'
-export { default as LSection } from './components/layout/Section.vue'
+export { default as LSection } from './components/layout/section/Section.vue'
