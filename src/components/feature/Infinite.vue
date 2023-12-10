@@ -9,16 +9,16 @@ interface LInfiniteItem {
 }
 
 export interface LInfiniteProps {
-    list: LInfiniteItem[]
+    infinites: LInfiniteItem[]
 }
 
-const { list } = withDefaults(defineProps<LInfiniteProps>(), {
-    list: () => []
+const { infinites } = withDefaults(defineProps<LInfiniteProps>(), {
+    infinites: () => []
 })
 const shuffle = (arr: LInfiniteItem[]) => {
     return arr.sort(() => Math.random() - 0.5)
 }
-const listShuffled = shuffle(list)
+const listShuffled = shuffle(infinites)
 
 onMounted(() => {
     Fancybox.bind('[data-fancybox]', {

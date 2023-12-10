@@ -8,8 +8,7 @@ import {
     LTile,
     LGrid,
     LCompare,
-    LInfinite,
-    LAutoSection
+    LInfinite
 } from './src'
 
 const data = {
@@ -205,13 +204,12 @@ const list = ref([
     </LSection>
     <LSection cover>
         <template #title>个性化。打造专属标签页</template>
-        <LInfinite :list="list" />
+        <LInfinite :infinites="list" />
     </LSection>
     <LSection color="gray">
         <template #title>用户评价</template>
         <LComment :comments="data.comments" />
     </LSection>
-    <LAutoSection></LAutoSection>
     <LFooter :links="data.footer.links" :pages="data.footer.pages">
         <template #left>
             Copyright © {{ new Date().getFullYear() }}

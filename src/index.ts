@@ -8,7 +8,7 @@ export {
 export {
     default as LComment,
     type LCommentProps
-} from './components/Comment.vue'
+} from './components/feature/Comment.vue'
 
 export {
     default as LCompare,

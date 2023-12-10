@@ -8,12 +8,11 @@ export interface LTileItem {
 
 export interface LTileProps {
     item: LTileItem
-    position: 'top' | 'bottom' | 'left' | 'right'
+    position?: 'top' | 'bottom' | 'left' | 'right'
     body?: 'bl' | 'b' | 'a' | null
 }
 
 const { item, position, body } = withDefaults(defineProps<LTileProps>(), {
-    item: () => {},
     position: 'bottom',
     body: null
 })
