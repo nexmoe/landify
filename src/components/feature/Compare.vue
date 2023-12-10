@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import lax from 'lax.js'
-import { onMounted, defineProps, withDefaults } from 'vue'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { onMounted, defineProps, withDefaults, ref } from 'vue'
 
 export interface LCompareProps {
     before: string
@@ -12,47 +13,45 @@ const { before, after } = withDefaults(defineProps<LCompareProps>(), {
     after: ''
 })
 
+const compare = ref<HTMLElement>()
+const refAfter = ref<HTMLElement>()
+
+// 初始化GSAP
+gsap.registerPlugin(ScrollTrigger)
+
 onMounted(() => {
-    lax.init()
-
-    // Add a driver that we use to control our animations
-    lax.addDriver('scrollY', function () {
-        return window.scrollY
-    })
-
-    // Add animation bindings to elements
-    const compare = document.querySelector('.l-compare')
-    const easing = 'easeInQuad'
-    lax.addElements(
-        '.after',
-        {
-            scrollY: {
-                opacity: [['elInY+150', 'elOutY-200'], [0, 1], { easing }],
-                scale: [['elInY+150', 'elOutY-200'], [1.1, 1], { easing }],
-                translateY: [['elInY+150', 'elOutY-200'], [200, 0], { easing }]
-            }
+    gsap.to('.l-after', {
+        opacity: 1,
+        scale: 1,
+        translateY: 0,
+        duration: 0.5,
+        scrollTrigger: {
+            trigger: '.l-after',
+            start: 'top 150px', // 触发动画的位置
+            end: 'bottom', // 动画结束的位置
+            scrub: true, // 滚动时平滑过渡
+            markers: true // 调试时显示触发器标记
         },
-        {
-            onUpdate: function (driverValues) {
-                const scrollY = driverValues.scrollY[0]
-                if (scrollY >= compare.offsetTop - 63) {
-                    compare.classList.add('sticky')
-                } else {
-                    compare.classList.remove('sticky')
-                }
-            }
+        onStart: () => {
+            console.log('onStart')
+            compare.value?.classList.add('visible')
+        },
+        onLeaveBack: () => {
+            console.log('onLeaveBack')
+            compare.value?.classList.remove('visible')
         }
-    )
+    })
+    // 添加滚动触发器
 })
 </script>
 
 <template>
-    <div class="l-compare">
+    <div ref="compare" class="l-compare">
         <div class="l-compare-item">
             <div class="l-picture">
                 <img class="h-full w-full" :src="before" />
             </div>
-            <div class="l-picture after">
+            <div ref="refAfter" class="l-picture l-after">
                 <img class="h-full w-full" :src="after" />
             </div>
         </div>
@@ -62,22 +61,24 @@ onMounted(() => {
 <style scoped>
 .l-compare {
     @apply flex overflow-hidden justify-center;
-    height: 250vh;
+    height: 220vh;
 }
 .l-compare-item {
-    @apply relative w-full h-full;
+    @apply w-full h-full;
+    position: sticky;
+    top: 100px;
     max-width: calc(100vw - 100px);
     max-height: calc(100vh - 200px);
 }
-.sticky {
+.visible {
     @apply overflow-visible;
-}
-.sticky .l-compare-item {
-    position: sticky;
-    top: 100px;
 }
 .l-picture {
     @apply w-full absolute overflow-hidden rounded-xl shadow-lg;
     aspect-ratio: 1500 / 722;
+}
+.l-after {
+    @apply opacity-0;
+    transform: scale(1.1) translateY(200px);
 }
 </style>

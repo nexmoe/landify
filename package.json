@@ -43,8 +43,9 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.28",
     "@xiaoshuapp/theme": "^1.0.4",
-    "lax.js": "^2.0.3"
+    "gsap": "^3.12.3"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",

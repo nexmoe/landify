@@ -1,19 +1,32 @@
 <script setup lang="ts">
-import { defineProps, withDefaults } from 'vue'
+import { defineProps, withDefaults, onMounted } from 'vue'
+import { Fancybox } from '@fancyapps/ui'
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
+
+interface LInfiniteItem {
+    img: string
+    title?: string
+}
 
 export interface LInfiniteProps {
-    list: {
-        img: string
-    }[]
+    list: LInfiniteItem[]
 }
 
 const { list } = withDefaults(defineProps<LInfiniteProps>(), {
     list: () => []
 })
-const shuffle = (arr) => {
+const shuffle = (arr: LInfiniteItem[]) => {
     return arr.sort(() => Math.random() - 0.5)
 }
 const listShuffled = shuffle(list)
+
+onMounted(() => {
+    Fancybox.bind('[data-fancybox]', {
+        Thumbs: {
+            showOnStart: false
+        }
+    })
+})
 </script>
 
 <template>
@@ -22,7 +35,13 @@ const listShuffled = shuffle(list)
             <div v-for="x in 2" :key="x" class="l-infinite-item">
                 <template v-for="(item, index) in listShuffled" :key="index">
                     <div v-if="(index + 1) % 3 == i - 1" class="card">
-                        <img loading="lazy" :src="item.img" />
+                        <a
+                            :href="item.img"
+                            data-fancybox="gallery"
+                            :data-caption="item.title"
+                        >
+                            <img loading="lazy" :src="item.img" />
+                        </a>
                     </div>
                 </template>
             </div>
@@ -36,7 +55,7 @@ const listShuffled = shuffle(list)
 }
 
 .l-infinite-item {
-    @apply flex flex-row gap-6;
+    @apply flex flex-row;
     animation: right-to-left 25s linear infinite;
 }
 
@@ -49,12 +68,12 @@ const listShuffled = shuffle(list)
 }
 
 .row {
-    @apply flex flex-row gap-6;
+    @apply flex flex-row;
     height: 50vh;
 }
 
 .card {
-    @apply h-full overflow-hidden block;
+    @apply h-full overflow-hidden block mr-6;
     font-size: 0;
 }
 

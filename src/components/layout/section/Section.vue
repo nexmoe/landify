@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue'
-
-export interface LSectionProps {
-    color?: 'gray' | 'black' | 'white' | 'purple' | 'blue'
-    left?: boolean
-    cover?: boolean
-}
+import { LSectionProps } from './types'
 
 const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
     color: 'white',
