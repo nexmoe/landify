@@ -6,7 +6,7 @@ export interface LTileProps {
     des?: string
     position?: 'top' | 'bottom' | 'left' | 'right'
     body?: 'bl' | 'b' | 'a' | null
-    size?: 1 | '1_2'
+    size?: 1 | '1/2'
 }
 
 const { title, des, position, body, size } = withDefaults(
@@ -19,12 +19,14 @@ const { title, des, position, body, size } = withDefaults(
         size: 1
     }
 )
+
+const _size = size !== 1 ? size.replace('/', '_') : size
 </script>
 
 <template>
     <div
         class="l-tile"
-        :class="[`l-position-${position}`, `l-body-${body}`, `l-size-${size}`]"
+        :class="[`l-position-${position}`, `l-body-${body}`, `l-size-${_size}`]"
     >
         <div class="l-header" :class="{ 'l-a': body === 'a' }">
             <div class="l-title">{{ title }}<slot name="title" /></div>
