@@ -2,11 +2,18 @@
 import { defineProps, withDefaults, onMounted } from 'vue'
 import { Fancybox } from '@fancyapps/ui'
 import '@fancyapps/ui/dist/fancybox/fancybox.css'
+import { z } from 'zod'
 
-interface LInfiniteItem {
-    img: string
-    title?: string
-}
+const ZInfiniteItem = z
+    .object({
+        img: z.string(),
+        title: z.string()
+    })
+    .partial({
+        title: true
+    })
+
+export type LInfiniteItem = z.infer<typeof ZInfiniteItem>
 
 export interface LInfiniteProps {
     infinites: LInfiniteItem[]
@@ -15,6 +22,9 @@ export interface LInfiniteProps {
 const { infinites } = withDefaults(defineProps<LInfiniteProps>(), {
     infinites: () => []
 })
+
+console.log(ZInfiniteItem.array().parse(infinites))
+
 const shuffle = (arr: LInfiniteItem[]) => {
     return arr.sort(() => Math.random() - 0.5)
 }
