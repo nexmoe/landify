@@ -12,6 +12,12 @@ const ZInfiniteItem = z
     .partial({
         title: true
     })
+    .strict()
+
+// https://stackoverflow.com/questions/76470955/unresolvable-type-reference-in-vue-with-typescript
+// const ZInfiniteProps = z.object({
+//     infinites: ZInfiniteItem.array()
+// })
 
 export type LInfiniteItem = z.infer<typeof ZInfiniteItem>
 
@@ -23,7 +29,10 @@ const { infinites } = withDefaults(defineProps<LInfiniteProps>(), {
     infinites: () => []
 })
 
-console.log(ZInfiniteItem.array().parse(infinites))
+const result = ZInfiniteItem.array().safeParse(infinites)
+if (!result.success) {
+    console.error(result.error)
+}
 
 const shuffle = (arr: LInfiniteItem[]) => {
     return arr.sort(() => Math.random() - 0.5)

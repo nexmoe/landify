@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue'
 
-export interface LTileItem {
-    title?: string
-    des?: string
-}
-
 export interface LTileProps {
     title?: string
     des?: string

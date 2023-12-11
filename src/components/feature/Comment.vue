@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue'
+import { z } from 'zod'
 
-export interface LCommentItem {
-    comment: string
-    author: string
-}
+const ZCommentItem = z
+    .object({
+        comment: z.string(),
+        author: z.string()
+    })
+    .strict()
+
+type LCommentItem = z.infer<typeof ZCommentItem>
 
 export interface LCommentProps {
     comments: LCommentItem[]
@@ -13,6 +18,11 @@ export interface LCommentProps {
 const { comments } = withDefaults(defineProps<LCommentProps>(), {
     comments: () => []
 })
+
+const result = ZCommentItem.array().safeParse(comments)
+if (!result.success) {
+    console.error(result.error)
+}
 </script>
 <template>
     <div class="nex-comment">
