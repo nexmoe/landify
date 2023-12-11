@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue'
 
-interface Comment {
+export interface LCommentItem {
     comment: string
     author: string
 }
 
 export interface LCommentProps {
-    comments: Comment[]
+    comments: LCommentItem[]
 }
 
 const { comments } = withDefaults(defineProps<LCommentProps>(), {

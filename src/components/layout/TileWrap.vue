@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import LTile from '../feature/Tile.vue'
-import { type LTileProps } from '../feature/Tile.vue'
+import LTile, { type LTileProps } from '../feature/Tile.vue'
 
-interface TileWrap extends LTileProps {
+interface LTileWrapItem extends LTileProps {
     img: string
 }
 
 export interface LTileWrapProps extends LTileProps {
-    tiles: TileWrap[]
+    tiles: LTileWrapItem[]
 }
 const { tiles } = withDefaults(defineProps<LTileWrapProps>(), {})
 </script>

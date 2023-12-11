@@ -6,6 +6,7 @@ export interface LSectionProps {
     left?: boolean
     cover?: boolean
 }
+
 const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
     color: 'white',
     left: false,

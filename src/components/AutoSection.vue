@@ -1,15 +1,10 @@
 <script setup lang="ts">
-import LTileWrap from './layout/TileWrap.vue'
-import LInfinite from './feature/Infinite.vue'
-import LCompare from './feature/Compare.vue'
-import LComment from './feature/Comment.vue'
-import LSection from './layout/Section.vue'
+import LInfinite, { type LInfiniteProps } from './feature/Infinite.vue'
+import LCompare, { type LCompareProps } from './feature/Compare.vue'
+import LComment, { type LCommentProps } from './feature/Comment.vue'
 
-import { type LSectionProps } from './layout/Section.vue'
-import { type LTileWrapProps } from './layout/TileWrap.vue'
-import { type LInfiniteProps } from './feature/Infinite.vue'
-import { type LCompareProps } from './feature/Compare.vue'
-import { type LCommentProps } from './feature/Comment.vue'
+import LTileWrap, { type LTileWrapProps } from './layout/TileWrap.vue'
+import LSection, { type LSectionProps } from './layout/Section.vue'
 
 const components = {
     LTileWrap,

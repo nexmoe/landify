@@ -13,10 +13,15 @@ async function generateIndexFile() {
         // 使用globby获取组件文件夹中的所有.vue文件路径
         const files = await globby('**/*.vue', { cwd: componentDirectory })
         // 生成index.ts文件的内容
+
         const indexContent = files
             .map((file) => {
                 const componentName = path.basename(file, '.vue')
-                return `export { default as L${componentName}, type L${componentName}Props } from './components/${file}'\n`
+                const lines = [
+                    `export * from './components/${file}'`,
+                    `export { default as L${componentName} } from './components/${file}'`
+                ]
+                return lines.join('\n') + '\n'
             })
             .join('\n')
 
