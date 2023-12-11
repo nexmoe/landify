@@ -29,8 +29,8 @@ onMounted(() => {
             trigger: '.l-after',
             start: 'top 150px', // 触发动画的位置
             end: 'bottom', // 动画结束的位置
-            scrub: true, // 滚动时平滑过渡
-            markers: true // 调试时显示触发器标记
+            scrub: true // 滚动时平滑过渡
+            // markers: true // 调试时显示触发器标记
         },
         onStart: () => {
             console.log('onStart')
