@@ -118,4 +118,8 @@ const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
 .l-section .l-colored {
     color: var(--l-section-color);
 }
+
+.l-section.white :deep(.l-tile) {
+    box-shadow: 0 2px 64px 0 rgb(0 0 0 / 15%);
+}
 </style>

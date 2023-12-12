@@ -16,6 +16,7 @@ const components = {
 export interface LAutoSectionProps extends LSectionProps {
     title: string
     des?: string
+    // 全为对象
     props?:
         | LInfiniteProps
         | LCompareProps
@@ -32,20 +33,45 @@ const { color, left, cover, props } = withDefaults(
     }
 )
 
-let _type: 'LTileWrap' | 'LInfinite' | 'LCompare' | 'LComment' | null = null
+interface _LAutoSectionTypeList {
+    type: 'LTileWrap' | 'LInfinite' | 'LCompare' | 'LComment'
+    props: LInfiniteProps | LCompareProps | LCommentProps | LTileWrapProps
+}
+
+const _typeList: _LAutoSectionTypeList[] = []
 
 if (props) {
     if ('infinites' in props) {
-        _type = 'LInfinite'
+        _typeList.push({
+            type: 'LInfinite',
+            props: {
+                infinites: props.infinites
+            }
+        })
     }
     if ('comments' in props) {
-        _type = 'LComment'
+        _typeList.push({
+            type: 'LComment',
+            props: {
+                comments: props.comments
+            }
+        })
     }
-    if ('before' in props || 'after' in props) {
-        _type = 'LCompare'
+    if ('compare' in props) {
+        _typeList.push({
+            type: 'LCompare',
+            props: {
+                compare: props.compare
+            }
+        })
     }
     if ('tiles' in props) {
-        _type = 'LTileWrap'
+        _typeList.push({
+            type: 'LTileWrap',
+            props: {
+                tiles: props.tiles
+            }
+        })
     }
 }
 </script>
@@ -54,6 +80,11 @@ if (props) {
     <LSection :color="color" :left="left" :cover="cover">
         <template #title><div v-html="title" /></template>
         <template #des><div v-html="des" /></template>
-        <component :is="components[_type]" v-if="_type" v-bind="props" />
+        <component
+            :is="components[_type.type]"
+            v-for="_type in _typeList"
+            :key="_type.type"
+            v-bind="props"
+        />
     </LSection>
 </template>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import theme from '@xiaoshuapp/theme/manifest.json'
 import {
     LFooter,
     LComment,
@@ -9,7 +8,7 @@ import {
     LGrid,
     LCompare,
     LInfinite
-} from './src'
+} from '../src'
 
 const data = {
     comments: [
@@ -118,13 +117,7 @@ const list = ref([
     },
     {
         img: 'https://xiaoshu.s3.bitiful.net/QQ图片20220607234517.jpg?fmt=webp&w=1000?fmt=webp&w=1000'
-    },
-    ...theme.map((x: any) => {
-        return {
-            img: x.src,
-            title: `主题 ${x.name}`
-        }
-    })
+    }
 ])
 </script>
 
@@ -139,8 +132,10 @@ const list = ref([
             Help you quickly build a landing page.
         </template>
         <LCompare
-            before="https://i.dawnlab.me/3f8088adb060eec2e9a1a10ab467695f.png/nexmoe"
-            after="https://xiaoshu.s3.bitiful.net/Snipaste_2023-07-08_21-07-29.png?fmt=webp"
+            :compare="{
+                before: 'https://i.dawnlab.me/3f8088adb060eec2e9a1a10ab467695f.png/nexmoe',
+                after: 'https://xiaoshu.s3.bitiful.net/Snipaste_2023-07-08_21-07-29.png?fmt=webp'
+            }"
         />
     </LSection>
     <LSection color="purple" left>
@@ -164,14 +159,14 @@ const list = ref([
                 title="同步空间，全平台访问。"
                 des="轻松连接你的工作电脑与家用电脑，让你在任何地点、使用任何浏览器，便利访问全部收藏夹"
                 body="bl"
-                size="1_2"
+                size="1/2"
             >
                 <img
                     loading="lazy"
                     src="https://i.dawnlab.me/cc15688dc52a551044b83a8a50117ccf.png/nexmoe"
                 />
             </LTile>
-            <LTile body="a" size="1_2">
+            <LTile body="a" size="1/2">
                 <template #title>
                     <div style="margin: -14px; font-size: 1.25rem">
                         使用小舒同学 Pro，手机也可以轻松访问

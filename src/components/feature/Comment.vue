@@ -9,7 +9,7 @@ const ZCommentItem = z
     })
     .strict()
 
-type LCommentItem = z.infer<typeof ZCommentItem>
+export type LCommentItem = z.infer<typeof ZCommentItem>
 
 export interface LCommentProps {
     comments: LCommentItem[]
