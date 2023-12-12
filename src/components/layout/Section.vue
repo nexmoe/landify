@@ -120,6 +120,6 @@ const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
 }
 
 .l-section.white :deep(.l-tile) {
-    @apply shadow-2xl;
+    box-shadow: 0 2px 64px 0 rgb(0 0 0 / 15%);
 }
 </style>

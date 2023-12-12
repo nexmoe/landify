@@ -7,6 +7,7 @@ export interface LTileProps {
     position?: 'top' | 'bottom' | 'left' | 'right'
     body?: 'bl' | 'b' | 'a' | null
     size?: 1 | '1/2'
+    color?: 'purple' | 'white'
 }
 
 const { title, des, position, body, size } = withDefaults(
@@ -16,7 +17,8 @@ const { title, des, position, body, size } = withDefaults(
         des: '',
         position: 'bottom',
         body: null,
-        size: 1
+        size: 1,
+        color: 'white'
     }
 )
 
@@ -26,13 +28,19 @@ const _size = size !== 1 ? size.replace('/', '_') : size
 <template>
     <div
         class="l-tile"
-        :class="[`l-position-${position}`, `l-body-${body}`, `l-size-${_size}`]"
+        :class="[
+            `l-position-${position}`,
+            `l-body-${body}`,
+            `l-size-${_size}`,
+            color,
+            { 'no-body': !$slots.default }
+        ]"
     >
         <div class="l-header" :class="{ 'l-a': body === 'a' }">
             <div class="l-title">{{ title }}<slot name="title" /></div>
             <div v-if="des" class="l-des">{{ des }}</div>
         </div>
-        <div class="l-body">
+        <div v-if="$slots.default" class="l-body">
             <slot />
         </div>
     </div>
@@ -41,6 +49,11 @@ const _size = size !== 1 ? size.replace('/', '_') : size
 <style scoped>
 .l-tile {
     @apply rounded-3xl bg-white flex flex-col gap-16 overflow-hidden;
+    min-height: 336px;
+}
+.l-tile.purple {
+    background-image: linear-gradient(225deg, #667eea 0, #764ba2 100%);
+    color: white;
 }
 .l-size-1 {
     @apply col-span-12;
@@ -52,7 +65,18 @@ const _size = size !== 1 ? size.replace('/', '_') : size
     @apply space-y-1 text-base font-bold pt-20 px-24;
 }
 .l-header .l-title {
+    @apply text-xl;
     color: var(--l-section-color);
+}
+
+.l-tile.no-body {
+    @apply justify-center;
+}
+.l-tile.no-body .l-header {
+    @apply pb-20 !px-16;
+}
+.l-tile.no-body .l-header .l-title {
+    @apply text-3xl mb-3;
 }
 .l-body {
     @apply w-full flex items-center h-full pb-20 px-24;
@@ -62,7 +86,7 @@ const _size = size !== 1 ? size.replace('/', '_') : size
     @apply px-12;
 }
 .l-body :deep(img) {
-    @apply w-full block;
+    @apply w-full block rounded-2xl;
 }
 
 /* tile position */

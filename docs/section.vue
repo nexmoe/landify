@@ -72,6 +72,24 @@ const datax: LAutoSectionProps[] = [
         color: 'blue'
     },
     {
+        title: 'Privacy',
+        props: {
+            tiles: [
+                {
+                    title: 'Be a collection porter',
+                    size: '1/2',
+                    color: 'purple',
+                    des: 'We do not record your favorites, nor do we upload them to the server. Buma just moved your favorites data to a new TAB, leaving the private data private (without using syncing space).'
+                },
+                {
+                    title: 'Strict restriction',
+                    size: '1/2',
+                    des: 'Based on Manifest V3, Buma strictly controls the required permissions and does not load any remote code'
+                }
+            ]
+        }
+    },
+    {
         title: 'Tile',
         color: 'gray',
         props: {
