@@ -12,7 +12,7 @@ const ZInfiniteItem = z
     .partial({
         title: true
     })
-    .strict()
+// .strict()
 
 // https://stackoverflow.com/questions/76470955/unresolvable-type-reference-in-vue-with-typescript
 // const ZInfiniteProps = z.object({

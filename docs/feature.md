@@ -3,7 +3,7 @@ layout: home
 ---
 
 <script setup>
-import Index from './index.vue'
+import Index from './test.vue'
 </script>
 
 <Index/>

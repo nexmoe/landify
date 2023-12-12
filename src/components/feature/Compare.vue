@@ -2,18 +2,24 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { onMounted, defineProps, withDefaults, ref } from 'vue'
+import { z } from 'zod'
+
+const ZCompareItem = z
+    .object({
+        before: z.string(),
+        after: z.string()
+    })
+    .strict()
+
+export type LCompareItem = z.infer<typeof ZCompareItem>
 
 export interface LCompareProps {
-    before: string
-    after: string
+    compare: LCompareItem
 }
 
-const { before, after } = withDefaults(defineProps<LCompareProps>(), {
-    before: '',
-    after: ''
-})
+const { compare } = withDefaults(defineProps<LCompareProps>(), {})
 
-const compare = ref<HTMLElement>()
+const refCompare = ref<HTMLElement>()
 const refAfter = ref<HTMLElement>()
 
 // 初始化GSAP
@@ -34,11 +40,11 @@ onMounted(() => {
         },
         onStart: () => {
             console.log('onStart')
-            compare.value?.classList.add('visible')
+            refCompare.value?.classList.add('visible')
         },
         onLeaveBack: () => {
             console.log('onLeaveBack')
-            compare.value?.classList.remove('visible')
+            refCompare.value?.classList.remove('visible')
         }
     })
     // 添加滚动触发器
@@ -46,13 +52,13 @@ onMounted(() => {
 </script>
 
 <template>
-    <div ref="compare" class="l-compare">
+    <div ref="refCompare" class="l-compare">
         <div class="l-compare-item">
             <div class="l-picture">
-                <img class="h-full w-full" :src="before" />
+                <img class="h-full w-full" :src="compare.before" />
             </div>
             <div ref="refAfter" class="l-picture l-after">
-                <img class="h-full w-full" :src="after" />
+                <img class="h-full w-full" :src="compare.after" />
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import theme from '@xiaoshuapp/theme/manifest.json'
-import { LAutoSection, type LAutoSectionProps } from './src'
+import { LAutoSection, type LAutoSectionProps } from '../src'
 
 const comments = [
     {
@@ -39,7 +39,7 @@ const comments = [
     }
 ]
 
-const list = [
+const infinites = [
     {
         img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-17-27.png?fmt=webp&w=1000?fmt=webp&w=1000',
         img2: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-17-27.png?fmt=webp&w=1000?fmt=webp&w=1000'
@@ -65,8 +65,11 @@ const list = [
 
 const datax: LAutoSectionProps[] = [
     {
-        title: 'Auto Section',
-        color: 'purple'
+        title: 'Landify, Components for Landing Page',
+        des: `Presentational Components for Landing Page, mainly build for
+            VitePress.<br />
+            Help you quickly build a landing page.`,
+        color: 'blue'
     },
     {
         title: 'Tile',
@@ -80,13 +83,13 @@ const datax: LAutoSectionProps[] = [
                 {
                     title: '同步空间，全平台访问。',
                     des: '轻松连接你的工作电脑与家用电脑，让你在任何地点、使用任何浏览器，便利访问全部收藏夹',
-                    size: '1_2',
+                    size: '1/2',
                     body: 'bl',
                     img: 'https://i.dawnlab.me/cc15688dc52a551044b83a8a50117ccf.png/nexmoe'
                 },
                 {
                     title: '对比',
-                    size: '1_2',
+                    size: '1/2',
                     img: 'https://i.dawnlab.me/3f8088adb060eec2e9a1a10ab467695f.png/nexmoe'
                 }
             ]
@@ -94,10 +97,13 @@ const datax: LAutoSectionProps[] = [
     },
     {
         title: '对比',
+        cover: true,
         color: 'gray',
         props: {
-            before: 'https://i.dawnlab.me/3f8088adb060eec2e9a1a10ab467695f.png/nexmoe',
-            after: 'https://xiaoshu.s3.bitiful.net/Snipaste_2023-07-08_21-07-29.png?fmt=webp'
+            compare: {
+                before: 'https://i.dawnlab.me/3f8088adb060eec2e9a1a10ab467695f.png/nexmoe',
+                after: 'https://xiaoshu.s3.bitiful.net/Snipaste_2023-07-08_21-07-29.png?fmt=webp'
+            }
         }
     },
     {
@@ -111,7 +117,15 @@ const datax: LAutoSectionProps[] = [
         title: '无限滚动',
         cover: true,
         props: {
-            infinites: list
+            infinites
+        }
+    },
+    {
+        title: '无限滚动+评论',
+        cover: true,
+        props: {
+            infinites,
+            comments
         }
     }
 ]
