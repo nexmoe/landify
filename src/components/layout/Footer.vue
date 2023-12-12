@@ -19,7 +19,7 @@ interface Page {
 export interface LFooterProps {
     pages: Page[]
     links: LinkGroup[]
-    qrcode: string
+    qrcode?: string
 }
 
 const { pages, links, qrcode } = withDefaults(defineProps<LFooterProps>(), {
