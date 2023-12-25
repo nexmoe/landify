@@ -44,35 +44,35 @@
     "prepublish": "run-s build"
   },
   "dependencies": {
-    "@fancyapps/ui": "5.0.28",
+    "@fancyapps/ui": "5.0.32",
     "@xiaoshuapp/theme": "1.0.4",
-    "gsap": "3.12.3",
+    "gsap": "3.12.4",
     "zod": "3.22.4"
   },
   "devDependencies": {
     "@types/fs-extra": "11.0.4",
-    "@typescript-eslint/eslint-plugin": "6.13.2",
-    "@typescript-eslint/parser": "6.13.2",
+    "@typescript-eslint/eslint-plugin": "6.15.0",
+    "@typescript-eslint/parser": "6.15.0",
     "@unocss/eslint-config": "0.58.0",
     "@unocss/postcss": "0.58.0",
     "@unocss/preset-wind": "0.58.0",
     "consola": "3.2.3",
-    "eslint": "8.55.0",
+    "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-config-standard": "17.1.0",
-    "eslint-plugin-prettier": "5.0.1",
+    "eslint-plugin-prettier": "5.1.2",
     "eslint-plugin-vue": "9.19.2",
     "fs-extra": "11.2.0",
     "globby": "14.0.0",
     "mkdist": "1.4.0",
     "npm-run-all": "4.1.5",
-    "prettier": "3.1.0",
-    "tailwindcss": "3.3.6",
-    "typescript": "5.3.2",
+    "prettier": "3.1.1",
+    "tailwindcss": "3.4.0",
+    "typescript": "5.3.3",
     "unbuild": "2.0.0",
     "unocss": "0.58.0",
     "vite-node": "0.34.7",
-    "vitepress": "1.0.0-rc.31",
-    "vue": "3.3.10"
+    "vitepress": "1.0.0-rc.32",
+    "vue": "3.3.13"
   }
 }
