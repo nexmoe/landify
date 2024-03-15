@@ -71,7 +71,7 @@
     "typescript": "5.4.2",
     "unbuild": "2.0.0",
     "unocss": "0.58.5",
-    "vite-node": "0.34.7",
+    "vite-node": "1.4.0",
     "vitepress": "1.0.0-rc.45",
     "vue": "3.4.21"
   }
