@@ -68,11 +68,11 @@
     "npm-run-all": "4.1.5",
     "prettier": "3.2.5",
     "tailwindcss": "3.4.1",
-    "typescript": "5.4.2",
+    "typescript": "5.4.3",
     "unbuild": "2.0.0",
     "unocss": "0.58.6",
     "vite-node": "0.34.7",
-    "vitepress": "1.0.0-rc.45",
+    "vitepress": "1.0.1",
     "vue": "3.4.21"
   }
 }
