@@ -14,12 +14,12 @@ const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
 })
 </script>
 <template>
-    <div class="l-section" :class="color">
+    <section class="l-section" :class="color">
         <div class="l-container">
             <div class="l-header" :class="{ left }">
-                <div class="l-title">
+                <h2 class="l-title">
                     <slot name="title"></slot>
-                </div>
+                </h2>
                 <div v-if="$slots.des" class="l-des">
                     <slot name="des"></slot>
                 </div>
@@ -28,7 +28,7 @@ const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
         <div class="l-body" :class="[{ 'l-container': !cover }]">
             <slot />
         </div>
-    </div>
+    </section>
 </template>
 
 <style scoped>

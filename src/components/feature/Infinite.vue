@@ -59,7 +59,7 @@ onMounted(() => {
                             data-fancybox="gallery"
                             :data-caption="item.title"
                         >
-                            <img loading="lazy" :src="item.img" />
+                            <img loading="lazy" :alt="item.title" :src="item.img" />
                         </a>
                     </div>
                 </template>
