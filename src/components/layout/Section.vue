@@ -51,7 +51,7 @@ const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
 }
 
 .l-header .l-des {
-    @apply font-normal text-lg md:text-2xl max-w-4xl;
+    @apply font-normal text-lg md:text-2xl;
 }
 
 .l-body {

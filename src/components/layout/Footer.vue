@@ -67,7 +67,7 @@ const { pages, links, qrcode } = withDefaults(defineProps<LFooterProps>(), {
                 >
             </div>
             <div class="my-2 border-t border-gray-300 border-solid" />
-            <div class="copyright">
+            <div class="l-copyright">
                 <div>
                     <slot name="left" />
                 </div>
@@ -80,10 +80,10 @@ const { pages, links, qrcode } = withDefaults(defineProps<LFooterProps>(), {
 </template>
 
 <style scoped>
-.copyright {
+.l-copyright {
     @apply flex flex-col items-center justify-between sm:flex-row;
 }
-.copyright :deep(a) {
+.l-copyright :deep(a) {
     @apply underline;
 }
 </style>

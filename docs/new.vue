@@ -41,14 +41,11 @@ const comments = [
 
 const infinites = [
     {
-        img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-17-27.png?fmt=webp&w=1000?fmt=webp&w=1000',
-        img2: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-17-27.png?fmt=webp&w=1000?fmt=webp&w=1000'
+        img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-17-27.png?fmt=webp&w=1000?fmt=webp&w=1000'
     },
     {
         img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-35-24.png?fmt=webp&w=1000?fmt=webp&w=1000'
     },
-
-    {},
     {
         img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-06-07_23-26-40.png?fmt=webp&w=1000?fmt=webp&w=1000'
     },
@@ -65,39 +62,64 @@ const infinites = [
 
 const datax: LAutoSectionProps[] = [
     {
-        title: 'Landify, Components for Landing Page',
-        des: `Presentational Components for Landing Page, mainly build for
-            VitePress.<br />
-            Help you quickly build a landing page.`,
-        color: 'blue'
-    },
-    {
-        title: 'Privacy',
+        title: "<span class='colored'>组织。</span>直观、舒适",
         props: {
             tiles: [
+                // {
+                //     title: '自然流动的心流布局',
+                //     des: '我们每天被各式各样的的事情吸引。小舒同学尊重你有限的注意力，使用更为直观的方式组织你的在线生活',
+                //     size: '2/3',
+                //     body: 'b',
+                //     img: 'https://ipfs.crossbell.io/ipfs/bafkreiblywu5l4uhx6i3zve5p3j5rdyomidr464hwh46nw2yuilkzmfmca?img-quality=75&img-format=auto&img-onerror=redirect&img-width=1920'
+                // },
+                // {
+                //     title: '文件夹操作',
+                //     size: '1/3',
+                //     body: 'a'
+                // },
                 {
-                    title: 'Be a collection porter',
-                    size: '1/2',
-                    color: 'purple',
-                    des: 'We do not record your favorites, nor do we upload them to the server. Buma just moved your favorites data to a new TAB, leaving the private data private (without using syncing space).'
+                    title: '多种卡片类型',
+                    des: '更直观地管理收藏夹',
+                    img: 'https://i.dawnlab.me/b209da41aca1a55c675bfef937386bd6.png',
+                    size: '1/3'
                 },
                 {
-                    title: 'Strict restriction',
-                    size: '1/2',
-                    des: 'Based on Manifest V3, Buma strictly controls the required permissions and does not load any remote code'
+                    title: '多栏',
+                    des: '多个文件夹并行显示，收藏夹变看板',
+                    size: '1/3',
+                    img: 'https://i.dawnlab.me/6e9f43002ddbd7aacb2edf14f7024621.png',
+                    shadow: true
+                },
+                {
+                    title: '排序、多选……',
+                    des: '一切都是为了更便捷地管理你的收藏夹',
+                    size: '1/3',
+                    body: 'a',
+                    img: 'https://i.dawnlab.me/df4678bf1680adb1c7b4f226f54c0762.png/nexmoe'
+                },
+                {
+                    title: '分享',
+                    des: '将收藏夹轻松生成链接与二维码分享给朋友们',
+                    size: '1/3',
+                    img: 'https://i.dawnlab.me/67588bcf5e1bf653c4a2d8b6183336ab.png/nexmoe',
+                    shadow: true
+                },
+                {
+                    size: '2/3',
+                    title: '快速目录',
+                    des: '帮助你在不同文件夹之间轻松跳转，让注意力集中在一处',
+                    body: 'b',
+                    shadow: true,
+                    img: 'https://i.dawnlab.me/72f10bc5dc288c63b529820a36a8d7b3.png/nexmoe'
                 }
             ]
         }
     },
     {
-        title: 'Tile',
-
+        title: '<span class="colored">连接。</span>访问，随时随地',
+        des: '网络世界万物互联，轻松链接到任何地方、使用任何设备访问。让你不仅能启动哔哩哔哩，更能直达感兴趣的视频',
         props: {
             tiles: [
-                {
-                    title: '对比',
-                    img: 'https://i.dawnlab.me/3f8088adb060eec2e9a1a10ab467695f.png/nexmoe'
-                },
                 {
                     title: '同步空间，全平台访问。',
                     des: '轻松连接你的工作电脑与家用电脑，让你在任何地点、使用任何浏览器，便利访问全部收藏夹',
@@ -115,35 +137,34 @@ const datax: LAutoSectionProps[] = [
         }
     },
     {
-        title: '对比',
+        title: '<span class="colored">个性化。</span>打造专属标签页',
+        des: '壁纸、主题、主题色、随意设置的布局、显示效果、自定义 CSS',
         cover: true,
-
         props: {
-            compare: {
-                before: 'https://i.dawnlab.me/3f8088adb060eec2e9a1a10ab467695f.png/nexmoe',
-                after: 'https://xiaoshu.s3.bitiful.net/Snipaste_2023-07-08_21-07-29.png?fmt=webp'
-            }
+            gallery: infinites
         }
     },
     {
-        title: '评论',
-
+        title: '<span class="colored">隐私。</span>很私密，很安全',
         props: {
-            comments
+            tiles: [
+                {
+                    title: '做收藏夹的搬运工',
+                    size: '1/2',
+                    color: 'purple',
+                    des: '我们不会记录你的收藏夹信息，也不会上传到服务器。小舒同学只是把你的收藏夹数据搬运到新标签页（不使用同步空间时），让私密的数据仍然私密。'
+                },
+                {
+                    title: '严格的限制',
+                    size: '1/2',
+                    des: '基于 Manifest V3，小舒同学严格控制所需权限，不加载任何远程代码'
+                }
+            ]
         }
     },
     {
-        title: '无限滚动',
-        cover: true,
+        title: '用户评价',
         props: {
-            infinites
-        }
-    },
-    {
-        title: '无限滚动+评论',
-        cover: true,
-        props: {
-            infinites,
             comments
         }
     }

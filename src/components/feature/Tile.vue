@@ -1,28 +1,36 @@
 <script setup lang="ts">
-import { defineProps, withDefaults } from 'vue'
+import { defineProps, withDefaults, onMounted } from 'vue'
+import { Fancybox } from '@fancyapps/ui'
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
 export interface LTileProps {
     title?: string
     des?: string
-    position?: 'top' | 'bottom' | 'left' | 'right'
+    position?: 'top' | 'bottom' | 'left' | 'right' // picture position
     body?: 'bl' | 'b' | 'a' | null
-    size?: 1 | '1/2'
+    size?: 1 | '1/2' | '1/3' | '2/3'
     color?: 'purple' | 'white'
+    img?: string
+    shadow?: boolean
 }
 
-const { title, des, position, body, size } = withDefaults(
-    defineProps<LTileProps>(),
-    {
-        title: '',
-        des: '',
-        position: 'bottom',
-        body: null,
-        size: 1,
-        color: 'white'
-    }
-)
+const props = withDefaults(defineProps<LTileProps>(), {
+    position: 'bottom',
+    body: null,
+    size: 1,
+    color: 'white',
+    shadow: false
+})
 
-const _size = size !== 1 ? size.replace('/', '_') : size
+const _size = props.size !== 1 ? props.size.replace('/', '_') : props.size
+
+onMounted(() => {
+    Fancybox.bind('[data-fancybox]', {
+        Thumbs: {
+            showOnStart: false
+        }
+    })
+})
 </script>
 
 <template>
@@ -33,15 +41,22 @@ const _size = size !== 1 ? size.replace('/', '_') : size
             `l-body-${body}`,
             `l-size-${_size}`,
             color,
-            { 'no-body': !$slots.default }
+            { 'no-body': !props.img }
         ]"
     >
         <div class="l-header" :class="{ 'l-a': body === 'a' }">
-            <div class="l-title">{{ title }}<slot name="title" /></div>
-            <div v-if="des" class="l-des">{{ des }}</div>
+            <h3 class="l-title">{{ title }}<slot name="title" /></h3>
+            <div v-if="des" class="l-des text-lg">{{ des }}</div>
         </div>
-        <div v-if="$slots.default" class="l-body">
-            <slot />
+        <div v-if="props.img" class="l-body">
+            <img
+                :class="{ 'shadow-lg': props.shadow }"
+                loading="lazy"
+                :src="props.img"
+                :alt="title"
+                data-fancybox="gallery"
+                :data-caption="title"
+            />
         </div>
     </div>
 </template>
@@ -56,16 +71,23 @@ const _size = size !== 1 ? size.replace('/', '_') : size
     color: white;
 }
 .l-size-1 {
-    @apply col-span-12;
+    @apply md:col-span-12;
 }
 .l-size-1_2 {
     @apply col-span-6;
 }
+.l-size-1_3 {
+    @apply col-span-4;
+}
+.l-size-2_3 {
+    @apply col-span-8;
+}
+
 .l-header {
-    @apply space-y-1 text-base font-bold pt-20 px-24;
+    @apply space-y-1 pt-16 px-20;
 }
 .l-header .l-title {
-    @apply text-xl;
+    @apply text-xl font-bold;
     color: var(--l-section-color);
 }
 
@@ -73,20 +95,20 @@ const _size = size !== 1 ? size.replace('/', '_') : size
     @apply justify-center;
 }
 .l-tile.no-body .l-header {
-    @apply pb-20 !px-16;
+    @apply pb-16 !px-12;
 }
 .l-tile.no-body .l-header .l-title {
     @apply text-3xl mb-3;
 }
 .l-body {
-    @apply w-full flex items-center h-full pb-20 px-24;
+    @apply w-full flex items-center h-full pb-16 px-12;
 }
 .l-size-1_2 .l-header,
 .l-size-1_2 .l-body {
     @apply px-12;
 }
 .l-body :deep(img) {
-    @apply w-full block rounded-2xl;
+    @apply w-full block rounded-xl;
 }
 
 /* tile position */
@@ -130,12 +152,9 @@ const _size = size !== 1 ? size.replace('/', '_') : size
     @apply items-end pb-0;
 }
 .l-body-a .l-body {
-    @apply !p-0;
+    @apply items-end !p-0;
 }
-.l-body-a .l-header {
-    @apply absolute pt-12;
-}
-.l-body-a .l-header .l-title {
-    color: white;
+.l-body-b :deep(img) {
+    @apply rounded-b-none;
 }
 </style>

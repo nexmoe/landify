@@ -2,13 +2,10 @@
 import { ref } from 'vue'
 import {
     LFooter,
-    LComment,
     LSection,
     LTile,
-    LGrid,
-    LCompare,
     LInfinite,
-    LBento,
+    LTileWrap,
     LGallery
 } from '../src'
 
@@ -126,7 +123,46 @@ const list = ref([
 
 <template>
     <LSection>
-        <LBento></LBento>
+        <template #des>
+            流畅和直观的体验，更专注和舒适的交互设计。以一种对你有意义的方式来组织你的整个在线生活的方式。
+        </template>
+        <LTileWrap
+            :tiles="[
+                {
+                    title: '多种卡片类型',
+                    des: '轻松连接你的工作电脑与家用电脑，让你在任何地点、使用任何浏览器，便利访问全部收藏夹',
+                    size: '1/3'
+                },
+                {
+                    title: '多栏',
+                    size: '1/3'
+                },
+                {
+                    title: '排序',
+                    size: '1/3'
+                },
+                {
+                    title: '自然流动的心流布局',
+                    size: '2/3'
+                },
+                {
+                    title: '快速目录',
+                    des: '轻松连接你的工作电脑与家用电脑，让你在任何地点、使用任何浏览器，便利访问全部收藏夹',
+                    size: '1/3'
+                },
+                {
+                    title: '使用小舒同学 Web，手机也可以轻松访问',
+                    size: '1/3',
+                    body: 'a',
+                    img: 'https://i.dawnlab.me/10d0480ec540b532c66c7f345c1cbdb4.png/nexmoe'
+                },
+                {
+                    size: '2/3',
+                    title: '对比',
+                    img: 'https://i.dawnlab.me/3f8088adb060eec2e9a1a10ab467695f.png/nexmoe'
+                }
+            ]"
+        ></LTileWrap>
     </LSection>
     <!-- <LSection cover>
         <template #title>
@@ -147,47 +183,6 @@ const list = ref([
     <LSection cover>
         <template #title>个性化。打造专属标签页</template>
         <LGallery :gallery="list" />
-    </LSection>
-    <LSection color="purple" left>
-        <template #title> 连接访问收藏，<br />随时随地。</template>
-        <template #des
-            >网络世界万物互联，轻松链接到任何地方、使用任何设备访问。让你不仅能启动哔哩哔哩，更能直达感兴趣的视频
-        </template>
-        <LTile
-            :item="{
-                title: '你的创意，全屏幕呈现。',
-                des: 'iPad 生动鲜活的视网膜显示屏，总会让你不知不觉沉浸其中。只需轻点一下，即可放大生动鲜活的视网膜显示屏，总会让你不知不觉沉浸其中。只需轻点一下，即可放大生动鲜活的视网膜显示屏，总会让你不知不觉沉浸其中。只需轻点一下，即可放大 App 预览，全屏体验你的 app。你也可以自定义 Battleship 和 Brick Breaker 等内置游戏，然后将画面切换至全屏，尽情投入体验。'
-            }"
-            position="top"
-        >
-            <img
-                loading="lazy"
-                src="https://www.apple.com.cn/v/swift/playgrounds/g/images/overview/explore_creation__famblwu7nuq2_large_2x.png"
-        /></LTile>
-        <LGrid :grid="2">
-            <LTile
-                title="同步空间，全平台访问。"
-                des="轻松连接你的工作电脑与家用电脑，让你在任何地点、使用任何浏览器，便利访问全部收藏夹"
-                body="bl"
-                size="1/2"
-            >
-                <img
-                    loading="lazy"
-                    src="https://i.dawnlab.me/cc15688dc52a551044b83a8a50117ccf.png/nexmoe"
-                />
-            </LTile>
-            <LTile body="a" size="1/2">
-                <template #title>
-                    <div style="margin: -14px; font-size: 1.25rem">
-                        使用小舒同学 Pro，手机也可以轻松访问
-                    </div>
-                </template>
-                <img
-                    loading="lazy"
-                    src="https://i.dawnlab.me/10d0480ec540b532c66c7f345c1cbdb4.png"
-                />
-            </LTile>
-        </LGrid>
     </LSection>
     <LSection color="purple" left>
         <template #title> 连接访问收藏，<br />随时随地。</template>
