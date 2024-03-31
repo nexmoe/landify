@@ -17,6 +17,6 @@ const props = withDefaults(defineProps<LTileWrapProps>(), {})
 
 <style scoped>
 .l-tile-wrap {
-    @apply md:grid gap-6 md:grid-cols-12;
+    @apply flex flex-col md:grid gap-6 md:grid-cols-12;
 }
 </style>
