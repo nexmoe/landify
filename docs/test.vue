@@ -105,6 +105,7 @@ const data = {
 
 const list = ref([
     {
+        title: '主题：撒打算',
         img: 'https://xiaoshu.s3.bitiful.net/Snipaste_2022-10-28_11-17-27.png?fmt=webp&w=1000?fmt=webp&w=1000'
     },
     {
@@ -209,10 +210,10 @@ const list = ref([
         <template #title>个性化。打造专属标签页</template>
         <LInfinite :infinites="list" />
     </LSection>
-    <LSection color="gray">
+    <!-- <LSection color="gray">
         <template #title>用户评价</template>
         <LComment :comments="data.comments" />
-    </LSection>
+    </LSection> -->
     <LFooter :links="data.footer.links" :pages="data.footer.pages">
         <template #left>
             Copyright © {{ new Date().getFullYear() }}

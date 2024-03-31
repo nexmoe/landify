@@ -49,27 +49,29 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="l-gallery mx-auto w-full md:columns-3 md:gap-8 px-8">
-        <div
-            class="l-card mb-8 break-inside-avoid"
+    <div class="l-gallery mx-auto w-full md:columns-2 md:gap-8 px-8">
+        <a
+            class="l-card relative mb-8 break-inside-avoid overflow-hidden block"
             v-for="(item, index) in listShuffled"
             :key="index"
+            :href="item.img"
+            data-fancybox="gallery"
+            :data-caption="item.title"
         >
-            <a
-                :href="item.img"
-                data-fancybox="gallery"
-                :data-caption="item.title"
+            <img loading="lazy" :alt="item.title" :src="item.img" />
+            <div
+                v-if="item.title"
+                class="absolute py-2 px-3 bottom-0 left-0 my-5 mx-6 bg-white/50 rounded-full backdrop-blur shadow-md"
             >
-                <img loading="lazy" :alt="item.title" :src="item.img" />
-            </a>
-        </div>
+                {{ item.title }}
+            </div>
+        </a>
     </div>
 </template>
 
 <style scoped>
 img {
-    height: 100%;
-    max-width: none;
+    width: 100%;
     display: block;
 }
 </style>
