@@ -27,7 +27,7 @@ const _size = size !== 1 ? size.replace('/', '_') : size
 
 <template>
     <div
-        class="l-tile"
+        class="l-card l-tile"
         :class="[
             `l-position-${position}`,
             `l-body-${body}`,
@@ -48,7 +48,7 @@ const _size = size !== 1 ? size.replace('/', '_') : size
 
 <style scoped>
 .l-tile {
-    @apply rounded-3xl bg-white flex flex-col gap-16 overflow-hidden;
+    @apply rounded-3xl flex flex-col gap-16 overflow-hidden;
     min-height: 336px;
 }
 .l-tile.purple {

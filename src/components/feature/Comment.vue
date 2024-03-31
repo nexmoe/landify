@@ -29,7 +29,7 @@ if (!result.success) {
         <div
             v-for="item in comments"
             :key="item.comment"
-            class="mb-8 break-inside-avoid rounded-2xl bg-white p-8 dark:bg-dark"
+            class="l-card mb-8 break-inside-avoid p-8"
         >
             <svg
                 class="h-8 text-gray-400"

@@ -3,11 +3,17 @@ import './style/index.css'
 export * from './components/AutoSection.vue'
 export { default as LAutoSection } from './components/AutoSection.vue'
 
+export * from './components/feature/Bento.vue'
+export { default as LBento } from './components/feature/Bento.vue'
+
 export * from './components/feature/Comment.vue'
 export { default as LComment } from './components/feature/Comment.vue'
 
 export * from './components/feature/Compare.vue'
 export { default as LCompare } from './components/feature/Compare.vue'
+
+export * from './components/feature/Gallery.vue'
+export { default as LGallery } from './components/feature/Gallery.vue'
 
 export * from './components/feature/Infinite.vue'
 export { default as LInfinite } from './components/feature/Infinite.vue'

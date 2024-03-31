@@ -7,7 +7,9 @@ import {
     LTile,
     LGrid,
     LCompare,
-    LInfinite
+    LInfinite,
+    LBento,
+    LGallery
 } from '../src'
 
 const data = {
@@ -122,7 +124,10 @@ const list = ref([
 </script>
 
 <template>
-    <LSection cover>
+    <LSection>
+        <LBento></LBento>
+    </LSection>
+    <!-- <LSection cover>
         <template #title>
             <div class="nex-colored">Landify</div>
         </template>
@@ -137,6 +142,10 @@ const list = ref([
                 after: 'https://xiaoshu.s3.bitiful.net/Snipaste_2023-07-08_21-07-29.png?fmt=webp'
             }"
         />
+    </LSection> -->
+    <LSection cover>
+        <template #title>个性化。打造专属标签页</template>
+        <LGallery :gallery="list" />
     </LSection>
     <LSection color="purple" left>
         <template #title> 连接访问收藏，<br />随时随地。</template>

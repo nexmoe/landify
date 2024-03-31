@@ -2,6 +2,7 @@
 import LInfinite, { type LInfiniteProps } from './feature/Infinite.vue'
 import LCompare, { type LCompareProps } from './feature/Compare.vue'
 import LComment, { type LCommentProps } from './feature/Comment.vue'
+import LBento from './feature/Bento.vue'
 
 import LTileWrap, { type LTileWrapProps } from './layout/TileWrap.vue'
 import LSection, { type LSectionProps } from './layout/Section.vue'
@@ -10,7 +11,8 @@ const components = {
     LTileWrap,
     LInfinite,
     LCompare,
-    LComment
+    LComment,
+    LBento
 }
 
 export interface LAutoSectionProps extends LSectionProps {
@@ -34,7 +36,7 @@ const { color, left, cover, props } = withDefaults(
 )
 
 interface _LAutoSectionTypeList {
-    type: 'LTileWrap' | 'LInfinite' | 'LCompare' | 'LComment'
+    type: 'LTileWrap' | 'LInfinite' | 'LCompare' | 'LComment' | 'LBento'
     props: LInfiniteProps | LCompareProps | LCommentProps | LTileWrapProps
 }
 
@@ -70,6 +72,14 @@ if (props) {
             type: 'LTileWrap',
             props: {
                 tiles: props.tiles
+            }
+        })
+    }
+    if ('bento' in props) {
+        _typeList.push({
+            type: 'LBento',
+            props: {
+                bento: props.bento
             }
         })
     }

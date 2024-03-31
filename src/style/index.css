@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 .l-container {
-    @apply container px-4 md:px-24 2xl:px-56 mx-auto;
+    @apply container px-4 md:px-16 2xl:px-32 mx-auto;
+}
+
+.l-card {
+    @apply bg-gray-50 dark:bg-white/5 rounded-2xl overflow-hidden border;
 }

@@ -91,7 +91,7 @@ const datax: LAutoSectionProps[] = [
     },
     {
         title: 'Tile',
-        color: 'gray',
+
         props: {
             tiles: [
                 {
@@ -116,7 +116,7 @@ const datax: LAutoSectionProps[] = [
     {
         title: '对比',
         cover: true,
-        color: 'gray',
+
         props: {
             compare: {
                 before: 'https://i.dawnlab.me/3f8088adb060eec2e9a1a10ab467695f.png/nexmoe',
@@ -126,7 +126,7 @@ const datax: LAutoSectionProps[] = [
     },
     {
         title: '评论',
-        color: 'gray',
+
         props: {
             comments
         }

@@ -46,12 +46,12 @@ const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
 }
 
 .l-header .l-title {
-    @apply !text-6xl font-bold md:text-5xl;
+    @apply text-3xl md:text-5xl font-bold;
     color: var(--l-section-color);
 }
 
 .l-header .l-des {
-    @apply text-lg font-normal md:text-lg;
+    @apply font-normal text-lg md:text-2xl max-w-4xl;
 }
 
 .l-body {
@@ -59,7 +59,7 @@ const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
 }
 
 .l-section.gray {
-    background: linear-gradient(0deg, #f5f5f7 1%, white 99%);
+    background: #f5f5f7;
 }
 
 .l-section.black {
@@ -117,9 +117,5 @@ const { color, left, cover } = withDefaults(defineProps<LSectionProps>(), {
 
 .l-section .l-colored {
     color: var(--l-section-color);
-}
-
-.l-section.white :deep(.l-tile) {
-    box-shadow: 0 2px 64px 0 rgb(0 0 0 / 15%);
 }
 </style>
