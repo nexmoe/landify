@@ -61,7 +61,7 @@ onMounted(() => {
             <img loading="lazy" :alt="item.title" :src="item.img" />
             <div
                 v-if="item.title"
-                class="absolute py-2 px-3 bottom-0 left-0 my-5 mx-6 bg-white/50 rounded-full backdrop-blur shadow-md"
+                class="absolute py-2 px-4 bottom-0 left-0 my-5 mx-6 bg-white/50 rounded-full backdrop-blur shadow-md"
             >
                 {{ item.title }}
             </div>
