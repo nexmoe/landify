@@ -21,9 +21,6 @@ export { default as LTile } from './components/feature/Tile.vue'
 export * from './components/layout/Footer.vue'
 export { default as LFooter } from './components/layout/Footer.vue'
 
-export * from './components/layout/Grid.vue'
-export { default as LGrid } from './components/layout/Grid.vue'
-
 export * from './components/layout/Section.vue'
 export { default as LSection } from './components/layout/Section.vue'
 

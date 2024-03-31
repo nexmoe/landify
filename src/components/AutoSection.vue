@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import {
-    LInfinite,
     LCompare,
     LComment,
-    type LInfiniteProps,
     type LCompareProps,
     type LCommentProps
 } from '../index'
@@ -15,7 +13,6 @@ import LSection, { type LSectionProps } from './layout/Section.vue'
 
 const components = {
     LTileWrap,
-    LInfinite,
     LCompare,
     LComment,
     LGallery
@@ -26,7 +23,6 @@ export interface LAutoSectionProps extends LSectionProps {
     des?: string
     // 全为对象
     props?:
-        | LInfiniteProps
         | LCompareProps
         | LCommentProps
         | LTileWrapProps
@@ -43,26 +39,13 @@ const { color, left, cover, props } = withDefaults(
 )
 
 interface _LAutoSectionTypeList {
-    type: 'LTileWrap' | 'LInfinite' | 'LCompare' | 'LComment' | 'LGallery'
-    props:
-        | LInfiniteProps
-        | LCompareProps
-        | LCommentProps
-        | LTileWrapProps
-        | LGalleryProps
+    type: 'LTileWrap' | 'LCompare' | 'LComment' | 'LGallery'
+    props: LCompareProps | LCommentProps | LTileWrapProps | LGalleryProps
 }
 
 const _typeList: _LAutoSectionTypeList[] = []
 
 if (props) {
-    if ('infinites' in props) {
-        _typeList.push({
-            type: 'LInfinite',
-            props: {
-                infinites: props.infinites
-            }
-        })
-    }
     if ('comments' in props) {
         _typeList.push({
             type: 'LComment',
