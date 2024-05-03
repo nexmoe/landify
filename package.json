@@ -57,7 +57,7 @@
     "@unocss/postcss": "0.58.6",
     "@unocss/preset-wind": "0.58.6",
     "consola": "3.2.3",
-    "eslint": "8.57.0",
+    "eslint": "9.2.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-config-standard": "17.1.0",
     "eslint-plugin-prettier": "5.1.3",
