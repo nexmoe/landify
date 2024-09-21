@@ -49,6 +49,7 @@ onMounted(() => {
     })
     // 添加滚动触发器
 })
+
 </script>
 
 <template>
