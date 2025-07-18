@@ -58,7 +58,7 @@
     "@unocss/preset-wind": "0.58.6",
     "consola": "3.2.3",
     "eslint": "8.57.0",
-    "eslint-config-prettier": "9.1.0",
+    "eslint-config-prettier": "10.1.8",
     "eslint-config-standard": "17.1.0",
     "eslint-plugin-prettier": "5.1.3",
     "eslint-plugin-vue": "9.23.0",
