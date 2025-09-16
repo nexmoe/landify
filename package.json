@@ -44,7 +44,7 @@
     "prepublish": "run-s build"
   },
   "dependencies": {
-    "@fancyapps/ui": "5.0.35",
+    "@fancyapps/ui": "6.0.32",
     "@xiaoshuapp/theme": "1.0.4",
     "gsap": "3.12.5",
     "zod": "3.22.4"
